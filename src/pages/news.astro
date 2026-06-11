@@ -1,5 +1,71 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const FEEDS = [
+  'https://news.google.com/rss/search?q=%22Lewis+Smith+Lake%22&hl=en-US&gl=US&ceid=US:en',
+  'https://news.google.com/rss/search?q=Alabama+fishing+news&hl=en-US&gl=US&ceid=US:en',
+];
+
+function extractTag(xml: string, tag: string): string {
+  const cdataMatch = new RegExp(`<${tag}[^>]*><!\\[CDATA\\[(.*?)\\]\\]></${tag}>`, 's').exec(xml);
+  if (cdataMatch) return cdataMatch[1].trim();
+  const plainMatch = new RegExp(`<${tag}[^>]*>(.*?)</${tag}>`, 's').exec(xml);
+  return plainMatch ? plainMatch[1].trim() : '';
+}
+
+function extractAttr(xml: string, tag: string, attr: string): string {
+  const match = new RegExp(`<${tag}[^>]*${attr}="([^"]*)"`, 's').exec(xml);
+  return match ? match[1].trim() : '';
+}
+
+interface NewsItem {
+  title: string;
+  link: string;
+  source: string;
+  pubDate: string;
+}
+
+function parseItems(xml: string): NewsItem[] {
+  const items: NewsItem[] = [];
+  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+  let match;
+  while ((match = itemRegex.exec(xml)) !== null) {
+    const block = match[1];
+    const title = extractTag(block, 'title');
+    const link = extractTag(block, 'link') || extractAttr(block, 'link', 'href');
+    const pubDate = extractTag(block, 'pubDate');
+    const source = extractTag(block, 'source');
+    if (title && link) items.push({ title, link, pubDate, source });
+  }
+  return items;
+}
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return '';
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+const results = await Promise.allSettled(
+  FEEDS.map(url =>
+    fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; FishSmithLake/1.0)' } })
+      .then(r => r.text())
+      .then(parseItems)
+  )
+);
+
+const allItems = results.flatMap(r => r.status === 'fulfilled' ? r.value : []);
+
+const seen = new Set<string>();
+const articles = allItems
+  .filter(item => {
+    if (seen.has(item.title)) return false;
+    seen.add(item.title);
+    return true;
+  })
+  .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
+  .slice(0, 15);
 ---
 
 <BaseLayout
@@ -8,95 +74,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Smith Lake Fishing News</h1>
-    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 0.75rem;">The latest from around the lake — tournament results, fishing reports, and Alabama outdoors news updated automatically.</p>
-    <p style="font-size: 0.8rem; color: #7A9A7A; margin-bottom: 2.5rem;">News headlines are pulled automatically from public sources. FishSmithLake.com is not affiliated with any of the publications listed.</p>
+    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 0.75rem;">The latest from around the lake — tournament results, fishing reports, and Alabama outdoors news.</p>
+    <p style="font-size: 0.8rem; color: #7A9A7A; margin-bottom: 2.5rem;">News headlines are pulled from public sources at build time. FishSmithLake.com is not affiliated with any of the publications listed.</p>
 
-    <div id="news-loading" style="padding: 2rem 0; color: #4a5a4a; font-size: 0.95rem;">Loading latest Smith Lake news...</div>
-
-    <div id="news-error" style="display: none; padding: 1.5rem; background: #fafafa; border: 1px solid #D8E8D8; border-radius: 8px; color: #4a5a4a; line-height: 1.7;">
-      News temporarily unavailable. Check back soon — or visit <a href="https://www.al.com" target="_blank" rel="noopener" style="color: #2D6A4F;">AL.com</a> and <a href="https://www.bassmaster.com" target="_blank" rel="noopener" style="color: #2D6A4F;">Bassmaster.com</a> for the latest fishing coverage.
-    </div>
-
-    <div id="news-empty" style="display: none; padding: 1.5rem; background: #fafafa; border: 1px solid #D8E8D8; border-radius: 8px; color: #4a5a4a;">
-      No recent news found. Check back soon.
-    </div>
-
-    <div id="news-feed" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+    {articles.length === 0 ? (
+      <div style="padding: 1.5rem; background: #fafafa; border: 1px solid #D8E8D8; border-radius: 8px; color: #4a5a4a; line-height: 1.7;">
+        News temporarily unavailable. Check back soon — or visit <a href="https://www.al.com" target="_blank" rel="noopener" style="color: #2D6A4F;">AL.com</a> and <a href="https://www.bassmaster.com" target="_blank" rel="noopener" style="color: #2D6A4F;">Bassmaster.com</a> for the latest fishing coverage.
+      </div>
+    ) : (
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        {articles.map(item => (
+          <article style="background: white; border: 1px solid #D8E8D8; border-left: 4px solid #2D6A4F; border-radius: 6px; padding: 1rem 1.25rem;">
+            {item.source && (
+              <div style="font-size: 0.75rem; color: #52B788; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">{item.source}</div>
+            )}
+            <h2 style="margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 500; line-height: 1.4;">
+              <a href={item.link} target="_blank" rel="noopener noreferrer" style="color: #1A2E1A; text-decoration: none;">{item.title}</a>
+            </h2>
+            <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+              {item.pubDate && (
+                <span style="font-size: 0.8rem; color: #64748B;">{formatDate(item.pubDate)}</span>
+              )}
+              <span style="font-size: 0.78rem; color: #2D6A4F;">External Link →</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
   </div>
-
-  <script>
-    const PROXY = 'https://corsproxy.io/?';
-    const FEEDS = [
-      'https://news.google.com/rss/search?q=%22Lewis+Smith+Lake%22&hl=en-US&gl=US&ceid=US:en',
-      'https://news.google.com/rss/search?q=Alabama+fishing+news&hl=en-US&gl=US&ceid=US:en',
-    ];
-
-    function parseItems(xmlText) {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(xmlText, 'text/xml');
-      const items = Array.from(doc.querySelectorAll('item'));
-      return items.map(item => ({
-        title: item.querySelector('title')?.textContent?.trim() ?? '',
-        link: item.querySelector('link')?.textContent?.trim() ?? '',
-        source: item.querySelector('source')?.textContent?.trim() ?? '',
-        pubDate: item.querySelector('pubDate')?.textContent?.trim() ?? '',
-      })).filter(i => i.title && i.link);
-    }
-
-    function formatDate(dateStr) {
-      if (!dateStr) return '';
-      const d = new Date(dateStr);
-      if (isNaN(d.getTime())) return '';
-      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    }
-
-    async function fetchFeed(url) {
-      const res = await fetch(PROXY + encodeURIComponent(url), { signal: AbortSignal.timeout(10000) });
-      const text = await res.text();
-      return parseItems(text);
-    }
-
-    async function loadNews() {
-      const loading = document.getElementById('news-loading');
-      const error = document.getElementById('news-error');
-      const empty = document.getElementById('news-empty');
-      const feed = document.getElementById('news-feed');
-
-      const results = await Promise.allSettled(FEEDS.map(fetchFeed));
-      const allItems = results.flatMap(r => r.status === 'fulfilled' ? r.value : []);
-
-      loading.style.display = 'none';
-
-      if (allItems.length === 0) {
-        const anyFulfilled = results.some(r => r.status === 'fulfilled');
-        (anyFulfilled ? empty : error).style.display = 'block';
-        return;
-      }
-
-      // Deduplicate by title, sort newest first, cap at 15
-      const seen = new Set();
-      const deduped = allItems.filter(item => {
-        if (seen.has(item.title)) return false;
-        seen.add(item.title);
-        return true;
-      });
-      deduped.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
-      const top15 = deduped.slice(0, 15);
-
-      feed.innerHTML = top15.map(item => `
-        <article style="background: white; border: 1px solid #D8E8D8; border-left: 4px solid #2D6A4F; border-radius: 6px; padding: 1rem 1.25rem;">
-          ${item.source ? `<div style="font-size: 0.75rem; color: #52B788; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">${item.source}</div>` : ''}
-          <h2 style="margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 500; line-height: 1.4;">
-            <a href="${item.link}" target="_blank" rel="noopener noreferrer" style="color: #1A2E1A; text-decoration: none;">${item.title}</a>
-          </h2>
-          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-            ${item.pubDate ? `<span style="font-size: 0.8rem; color: #64748B;">${formatDate(item.pubDate)}</span>` : ''}
-            <span style="font-size: 0.78rem; color: #2D6A4F;">External Link →</span>
-          </div>
-        </article>
-      `).join('');
-    }
-
-    loadNews();
-  </script>
 </BaseLayout>
