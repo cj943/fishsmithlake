@@ -1,0 +1,27 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: string;
+  slug: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, slug, tags = [] } = Astro.props;
+const formattedDate = new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<article style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.5rem; transition: box-shadow 0.2s;">
+  {tags.length > 0 && (
+    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem;">
+      {tags.map((tag: string) => (
+        <span style="background: #e6f4ec; color: #2D6A4F; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500;">{tag}</span>
+      ))}
+    </div>
+  )}
+  <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: #1A2E1A; margin-bottom: 0.5rem; line-height: 1.35;">
+    <a href={`/blog/${slug}`} style="color: #1A2E1A; text-decoration: none;">{title}</a>
+  </h2>
+  <p style="font-size: 0.8rem; color: #7A9A7A; margin-bottom: 0.75rem;">{formattedDate}</p>
+  <p style="font-size: 0.925rem; color: #4a5a4a; line-height: 1.65; margin-bottom: 1rem;">{description}</p>
+  <a href={`/blog/${slug}`} style="color: #2D6A4F; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Read More →</a>
+</article>

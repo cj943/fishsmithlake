@@ -1,0 +1,31 @@
+---
+export interface Props {
+  name: string;
+  difficulty: string;
+  bestSeason: string;
+  bestLure: string;
+  href: string;
+  emoji?: string;
+}
+
+const { name, difficulty, bestSeason, bestLure, href, emoji = '🎣' } = Astro.props;
+---
+<a href={href} style="display: block; background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.5rem; text-decoration: none; transition: box-shadow 0.2s, border-color 0.2s;">
+  <div style="font-size: 2rem; margin-bottom: 0.75rem;">{emoji}</div>
+  <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #2D6A4F; margin-bottom: 0.75rem;">{name}</h3>
+  <dl style="font-size: 0.875rem; color: #1A2E1A;">
+    <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid #D8E8D8;">
+      <dt style="color: #7A9A7A; font-weight: 500;">Difficulty</dt>
+      <dd style="font-weight: 600;">{difficulty}</dd>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid #D8E8D8;">
+      <dt style="color: #7A9A7A; font-weight: 500;">Best Season</dt>
+      <dd style="font-weight: 600;">{bestSeason}</dd>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding: 0.3rem 0;">
+      <dt style="color: #7A9A7A; font-weight: 500;">Top Lure</dt>
+      <dd style="font-weight: 600;">{bestLure}</dd>
+    </div>
+  </dl>
+  <span style="display: inline-block; margin-top: 1rem; color: #2D6A4F; font-size: 0.875rem; font-weight: 600;">Learn More →</span>
+</a>

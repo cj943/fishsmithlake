@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'best-time-to-fish-smith-lake' } },
+    { params: { slug: 'summer-fishing-tips-smith-lake' } },
+    { params: { slug: 'winter-fishing-smith-lake' } },
+    { params: { slug: 'smith-lake-fishing-report-spring' } },
+    { params: { slug: 'beginner-guide-fishing-smith-lake' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+const posts: Record<string, { title: string; description: string; pubDate: string; tags: string[]; html: string }> = {
+  'best-time-to-fish-smith-lake': {
+    title: 'Best Time of Year to Fish Lewis Smith Lake',
+    description: 'A complete seasonal breakdown — when to target spotted bass on the spawn, when stripers are blowing up on shad, and when winter jigging pays off.',
+    pubDate: '2024-03-01',
+    tags: ['Seasonal', 'Tips'],
+    html: `<p>Lewis Smith Lake fishes well in every season — but it doesn't fish the same way in every season. The lake's deep, clear water creates distinct seasonal patterns that differ meaningfully from what you'd expect at a shallower, murkier reservoir.</p>
+<h2>Spring: The Prime Season (March–May)</h2>
+<p>Spring is when Smith Lake is at its most generous. As water temperatures climb from the upper 40s into the mid-60s, spotted bass transition through a predictable prespawn, spawn, and post-spawn pattern that makes them highly catchable.</p>
+<p><strong>March</strong> brings prespawn spotted bass onto the points and transition banks adjacent to spawning flats. Fish are feeding aggressively before the spawn and are catchable on drop shots, shaky heads, and swimbaits in the 8–20 foot range. Finesse gear in 6–8 lb fluorocarbon is the right tool.</p>
+<p><strong>April</strong> is spawn month at Smith Lake, with fish moving into 2–6 feet over gravel and rocky substrate. This is the most accessible spotted bass fishing of the year.</p>
+<p>Simultaneously, crappie fill every shallow cove and dock during the spring spawn. A 1/16 oz jig or live minnow under a float in 2–4 feet of water near structure produces consistent action.</p>
+<h2>Summer: Go Deep, Go Early (June–August)</h2>
+<p>Summer at Smith Lake is about adaptation. When surface temperatures push into the mid-80s, the fish go deep — spotted bass to 25–40 feet on main lake structure, stripers following shad in the main channel. The best summer fishing happens between first light and about 10am. By midday, go vertical. Drop shot rigs worked slowly over ledges in 25–40 feet produce spotted bass throughout the summer.</p>
+<h2>Fall: The Exciting Season (September–November)</h2>
+<p>Fall at Smith Lake produces some of the most exciting fishing moments in freshwater. As water cools, spotted bass go on a feeding binge, and stripers herd shad into creek arms in spectacular surface blowups. <strong>Topwater fishing</strong> from September through early November is as good as it gets. <strong>Striper blowups</strong> in October and November are the signature experience of Smith Lake fall fishing.</p>
+<h2>Winter: Slow Down and Go Deep (December–February)</h2>
+<p>Winter gets overlooked by a lot of anglers, but it rewards those who know where to go. <strong>Striper jigging</strong> in the deepest part of the main channel — 40–80 feet near the dam — produces the trophy fish that make Smith Lake famous. <strong>Spotted bass</strong> in winter concentrate on main lake ledges in 20–35 feet. January and February routinely produce 4-to-5-pound spotted bass.</p>
+<p>If your trips to Smith Lake have you thinking about making it permanent, local expert Justin Dyar at <a href="https://justindyar.com" target="_blank" rel="noopener">justindyar.com</a> has helped hundreds of families do exactly that.</p>`,
+  },
+  'summer-fishing-tips-smith-lake': {
+    title: 'Summer Fishing Tips for Lewis Smith Lake',
+    description: 'Heat pushing fish deep? Here\'s how to find them — deep structure, early morning topwater, and the night fishing tactics that produce when summer is at its worst.',
+    pubDate: '2024-06-01',
+    tags: ['Summer', 'Techniques'],
+    html: `<p>Summer is the most challenging season to fish Lewis Smith Lake — and also one of the most rewarding if you adjust your approach. When air temperatures push into the 90s, most fish make one of three moves: they go deep, they go nocturnal, or they feed in a concentrated burst at first light.</p>
+<h2>The Early Morning Window</h2>
+<p>The single best move on a summer day at Smith Lake is to launch before sunrise. The first two hours of light — roughly 5:30am to 8:00am — are when surface temperatures are at their lowest and spotted bass push shallow. Work main lake points and rocky bank transitions with topwater lures: a Heddon Super Spook Jr, a Whopper Plopper, or a topwater popper walked along the surface in the low light produces violent strikes. By 9am on a July day, surface temps are climbing fast. Most experienced Smith Lake summer anglers are back at the dock by 10 or out on deep structure.</p>
+<h2>Going Deep: The Midday Game</h2>
+<p>When surface temps send spotted bass deep, they concentrate on main lake structure in 25–45 feet. Look for ledges and channel edges, submerged timber in 20–35 feet, and rocky points that dive sharply. For presentations, the drop shot dominates summer deep fishing. Also effective: a Ned rig on a 3/16 oz mushroom head, worked slowly along ledges. Line matters enormously — 6-to-8-pound fluorocarbon is standard for finesse applications.</p>
+<h2>Striper Opportunities in Summer</h2>
+<p>Summer stripers at Smith Lake follow shad schools in open water, typically suspending over the main channel at 30–50 feet during midday. The better summer striper strategy is to be on the main lake at first light, watch for surface activity, and have an umbrella rig ready. Brief summer morning surface feeds do happen.</p>
+<h2>Night Fishing for Catfish</h2>
+<p>Summer catfish fishing at Smith Lake is excellent from about 9pm through midnight on warm evenings. Set up on a sandy bottom near a creek channel mouth. Rig with cut shad on a Carolina rig with a 1-ounce egg sinker and a 3/0 circle hook. Channel catfish are active summer night feeders.</p>
+<p>For more detailed species information, see the <a href="/spotted-bass">Spotted Bass</a> page. And if those summer mornings have you thinking about a place on the lake, reach out to Justin Dyar at <a href="https://justindyar.com" target="_blank" rel="noopener">justindyar.com</a>.</p>`,
+  },
+  'winter-fishing-smith-lake': {
+    title: 'Winter Fishing on Lewis Smith Lake',
+    description: 'Cold water, fewer boats, and hungry fish. Why winter at Smith Lake can be surprisingly productive — and the techniques that work when temperatures drop.',
+    pubDate: '2024-01-15',
+    tags: ['Winter', 'Techniques'],
+    html: `<p>Most anglers put the rods away when November turns cold. That means Smith Lake is quieter in winter than at any other time of year — and for the anglers willing to layer up and go, it can produce some of the most memorable fishing of the year.</p>
+<h2>Why Winter Works at Smith Lake</h2>
+<p>Smith Lake's exceptional depth is a major factor. While shallower lakes see fish completely shut down, Smith Lake's deepest zones — 60-to-100-plus feet near the dam — maintain relatively stable temperatures. Stripers and large spotted bass use that deep water as a refuge and concentrate there in predictable numbers. Fewer boats means fish have recovered from fall pressure.</p>
+<h2>Striper Fishing: Winter's Best Show</h2>
+<p>Winter is the premier striper season at Lewis Smith Lake. From December through February, stripers pack into the deepest water near the dam, following shad in 40–80 feet. Vertical jigging with blade baits or heavy jigging spoons is the standard approach. Position your boat directly over the school you're seeing on sonar. Drop a 3/4-oz Silver Buddy or Hopkins jigging spoon, snap it up 2–3 feet, let it flutter back down. The strike usually happens on the fall.</p>
+<h2>Spotted Bass in Winter</h2>
+<p>Big spotted bass don't stop feeding in winter — they just slow down and go deep. Everything slows down in 50°F water. A shaky head jig needs to be barely moved in January — crawl it along the bottom, shake it in place, and be patient. Football jigs (3/8-to-1/2 oz) worked along deep rocky ledges are a classic winter spotted bass technique.</p>
+<h2>Reading the Winter Drawdown</h2>
+<p>Alabama Power typically draws the lake down in late fall. The good news: drawdown concentrates fish. Less water means fish have less area to roam. Find the remaining water adjacent to structure and you'll find fish. See the <a href="/water-levels">water levels page</a> for current elevation data.</p>
+<p>If cold mornings on a quiet Smith Lake have you thinking about owning a place there, Justin Dyar at <a href="https://justindyar.com" target="_blank" rel="noopener">justindyar.com</a> has been matching people to their ideal Smith Lake property for over 20 years.</p>`,
+  },
+  'smith-lake-fishing-report-spring': {
+    title: 'Smith Lake Fishing Report: Spring',
+    description: 'Spring conditions on Smith Lake — prespawn bass, crappie in the coves, and the first striper blowups of the year. What to expect and where to go.',
+    pubDate: '2024-04-01',
+    tags: ['Spring', 'Fishing Report'],
+    html: `<p>Spring at Lewis Smith Lake arrives gradually but unmistakably. When the redbuds bloom along the bluffs and water temperature climbs through the 50s, every species on the lake responds. This is the season regulars plan their trips around.</p>
+<h2>Water Temperature is Everything</h2>
+<p>Spring fishing at Smith Lake is governed by water temperature more than any other variable. At <strong>55–62°F</strong>, prespawn feeding peaks — spotted bass stack on transition banks adjacent to spawning flats. At <strong>62–68°F</strong>, spawn begins and both bass and crappie move shallow. At <strong>68°F+</strong>, post-spawn begins but fish remain relatively catchable.</p>
+<h2>Spotted Bass: Prespawn is Prime</h2>
+<p>The prespawn period — typically late March through mid-April — is the best spotted bass fishing of the year at Smith Lake. Fish are concentrated, accessible, and aggressive. Look for transition banks connecting 15-foot flats to 5-foot spawning areas, and rocky points where the bank transitions from deep to shallow. Drop shots, shaky heads, and small swimbaits on 6–8 lb fluorocarbon are the go-to presentations.</p>
+<h2>Crappie: Best Access of the Year</h2>
+<p>By mid-April, crappie are on their spawn throughout Smith Lake's coves and dock structures. Work docks systematically with a 1/16-oz tube jig or live minnow under a slip float. Brushy coves throughout the north arm — particularly in Clear Creek and Brushy Creek tributaries — hold excellent crappie spawns. Get there early before post-10am boat traffic pushes fish off their beds.</p>
+<h2>Stripers in Spring</h2>
+<p>Spring striper fishing transitions from tight winter schools to more spread-out fish following shad into creek arms and tributary mouths. Trolling or casting large swimbaits near creek mouths and main lake channel transitions is the primary spring striper approach.</p>
+<p>See the <a href="/smith-lake-fishing-guide">complete fishing guide</a> for a full season-by-season breakdown. If a spring fishing trip turns into a real estate conversation — it happens more than you'd think — Justin Dyar at <a href="https://justindyar.com" target="_blank" rel="noopener">justindyar.com</a> is the most knowledgeable person in the area for Smith Lake lakefront property.</p>`,
+  },
+  'beginner-guide-fishing-smith-lake': {
+    title: "Beginner's Guide to Fishing Lewis Smith Lake",
+    description: 'First time on Smith Lake? Everything you need — license requirements, which launch to use, what species to target first, and how to approach the clear water.',
+    pubDate: '2024-03-10',
+    tags: ['Beginner', 'Tips'],
+    html: `<p>Lewis Smith Lake is an excellent lake for beginners — but it's not the most forgiving lake for anglers who show up expecting it to fish like every other Alabama reservoir. The exceptional water clarity means fish here are wary, line-shy, and quick to spook. Here's what you need to know before your first trip.</p>
+<h2>Step 1: Get Your Alabama Fishing License</h2>
+<p>Any angler age 16 or older needs a valid Alabama freshwater fishing license. Get it online at outdooralabama.com, at any Alabama Walmart, or at bait shops near Smith Lake. Annual resident licenses run about $9.50. See the <a href="/fishing-regulations">Fishing Regulations page</a> for complete details.</p>
+<h2>Step 2: Choose Your Launch</h2>
+<p>For a first visit, <strong>Clear Creek Recreation Area</strong> (Winston County) is the best all-around public facility — paved multi-lane ramp, parking, restrooms, and excellent fishing water. <strong>Corinth Recreation Area</strong> (Cullman County) is another good option. See the <a href="/boat-launches">Boat Launches page</a> for the full list.</p>
+<h2>Step 3: Know What You're Targeting</h2>
+<p><strong>Start with crappie (spring) or catfish (any season)</strong> — the most beginner-friendly targets on the lake. Crappie in spring (March–May) are shallow and catchable on jigs or minnows. Catfish are available year-round and respond to cut bait or chicken liver. When you're ready, move to <strong>spotted bass</strong> with a simple drop shot rig: 6-pound fluorocarbon, a size 1 hook, a 3/16-oz weight, and a small soft plastic worm.</p>
+<h2>Step 4: Respect the Water Clarity</h2>
+<p>The number one beginner mistake at Smith Lake is using too-heavy line. Use 6–8 lb fluorocarbon for bass, 4–6 lb for crappie, and 15–20 lb mono for catfish. Fluorocarbon is harder for fish to see than monofilament — worth the slightly higher price for bass fishing here.</p>
+<h2>Step 5: Start Simple</h2>
+<p>Three setups cover most beginner situations: (1) Drop shot with green pumpkin 4-inch worm for spotted bass in 10–30 feet; (2) 1/16 oz jig with curly tail grub in white or chartreuse for crappie; (3) Carolina rig with cut shad for catfish.</p>
+<p>Once you've spent a few days on the water, you'll understand why so many people who come to Smith Lake end up wanting to stay. When that happens, reach out to Justin Dyar at <a href="https://justindyar.com" target="_blank" rel="noopener">justindyar.com</a> — he's helped hundreds of families find their place on the water.</p>`,
+  },
+};
+
+const post = posts[slug as string];
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<BaseLayout title={`${post.title} | FishSmithLake.com`} description={post.description}>
+  <div style="max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem;">
+    <div style="margin-bottom: 0.75rem;">
+      <a href="/blog" style="font-size: 0.8rem; color: #7A9A7A; text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em;">← Blog</a>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem;">
+      {post.tags.map((tag: string) => (
+        <span style="background: #e6f4ec; color: #2D6A4F; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500;">{tag}</span>
+      ))}
+    </div>
+
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.65rem, 4vw, 2.5rem); color: #1A2E1A; line-height: 1.25; margin-bottom: 0.5rem;">{post.title}</h1>
+    <p style="font-size: 0.85rem; color: #7A9A7A; margin-bottom: 2rem;">{formatDate(post.pubDate)}</p>
+
+    <div class="prose-lake" set:html={post.html} />
+
+    <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #D8E8D8; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <a href="/blog" style="color: #2D6A4F; text-decoration: none; font-size: 0.875rem; font-weight: 600;">← All Posts</a>
+      <a href="/smith-lake-fishing-guide" style="color: #2D6A4F; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Complete Fishing Guide →</a>
+    </div>
+  </div>
+</BaseLayout>

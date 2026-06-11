@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WaterLevelWidget from '../components/WaterLevelWidget.astro';
+---
+
+<BaseLayout
+  title="Boat Launches & Marinas at Smith Lake, Alabama | FishSmithLake.com"
+  description="Public boat launches and marinas at Lewis Smith Lake across Cullman, Walker, and Winston counties — locations, hours, facilities, and access tips."
+>
+  <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem;">
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Boat Launches & Marinas at Lewis Smith Lake</h1>
+    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2rem;">Getting on the water — public launches across all three counties plus marina options.</p>
+
+    <WaterLevelWidget />
+
+    <div class="prose-lake">
+
+      <p>Lewis Smith Lake has public boat launch access in all three counties it spans — Cullman, Walker, and Winston. Launches range from developed USFS recreation areas with parking and facilities to smaller county-maintained ramps. Before heading out, always check current <a href="/water-levels">water levels</a> — a significant drawdown can affect some launches and create navigation hazards at others.</p>
+
+      <h2>U.S. Forest Service Launches (Bankhead National Forest)</h2>
+
+      <h3>Clear Creek Recreation Area — Winston County</h3>
+      <p>The premier public access point on Smith Lake's northwest side. Clear Creek Recreation Area is operated by the U.S. Forest Service as part of the Bankhead National Forest. It features a paved, multi-lane boat ramp, a swimming beach, picnic facilities, and camping. This is one of the best-maintained launch facilities on the lake and provides access to the extremely clear, less-pressured northwest arm of Smith Lake. A day-use fee applies.</p>
+      <ul>
+        <li><strong>Location:</strong> Winston County, off County Road 6 — near the Haleyville/Double Springs area</li>
+        <li><strong>Facilities:</strong> Multi-lane paved ramp, parking, restrooms, picnic area, camping</li>
+        <li><strong>Fee:</strong> Day-use fee (USFS standard rate, cash/card)</li>
+      </ul>
+
+      <h3>Corinth Recreation Area — Cullman County</h3>
+      <p>Another USFS-managed recreation area on the Cullman County side of the lake. Corinth provides a boat launch, camping, and picnic facilities with access to the upper Sipsey Fork arm of the lake. Excellent for reaching the more remote, lightly fished coves of the north arm.</p>
+      <ul>
+        <li><strong>Location:</strong> Cullman County, near Crane Hill off CR 12</li>
+        <li><strong>Facilities:</strong> Paved ramp, parking, restrooms, camping</li>
+      </ul>
+
+      <h2>Alabama Power / County Launches</h2>
+
+      <h3>Arley Boat Landing — Winston County</h3>
+      <p>A public launch on the Winston County side near the community of Arley. Provides access to productive Winston County coves and the central portion of the lake. This ramp sees moderate traffic and is a good option for anglers targeting the mid-lake areas away from the dam.</p>
+      <ul>
+        <li><strong>Location:</strong> Winston County, off AL-195 near Arley</li>
+        <li><strong>Facilities:</strong> Ramp, parking</li>
+      </ul>
+
+      <h3>Sipsey Park Boat Launch — Walker County</h3>
+      <p>Located in Walker County near the dam end of the lake, this launch provides good access to the deepest, main-channel section of Smith Lake — prime territory for stripers and deep spotted bass. Walker County maintains this facility.</p>
+      <ul>
+        <li><strong>Location:</strong> Walker County, near Jasper — off SR 69 area</li>
+        <li><strong>Facilities:</strong> Ramp, parking</li>
+      </ul>
+
+      <h3>Houston Area Ramp — Cullman County</h3>
+      <p>A public ramp serving the Houston community area on the Cullman County side, providing access to some of the best main-lake spotted bass structure in the middle section of the lake.</p>
+
+      <h2>Private Marinas</h2>
+      <p>Several private marinas on Smith Lake offer launch services, boat storage, fuel, bait, and supplies. These include:</p>
+      <ul>
+        <li><strong>Smith Lake Marina</strong> — Full-service marina with fuel, bait, boat rentals, and launch access</li>
+        <li><strong>Various Dock & Boat Storage facilities</strong> — Multiple operators around the lake offer covered boat storage and slip rental for regular visitors</li>
+      </ul>
+      <p>Hours and services vary — call ahead, especially on weekdays or early/late season.</p>
+
+      <h2>Launch Tips</h2>
+      <ul>
+        <li>Arrive early on summer weekends — popular launches fill fast after 8am</li>
+        <li>Check water levels before trailering to a launch — low water can make some ramps unusable</li>
+        <li>Have your boat prepped and ready before pulling up to the ramp — courtesy to other boaters</li>
+        <li>Inspect your trailer's lights and straps before each trip</li>
+        <li>Remove all aquatic vegetation from your boat, trailer, and gear — Alabama law requires it to prevent spread of invasive species</li>
+      </ul>
+
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WaterLevelWidget from '../components/WaterLevelWidget.astro';
+---
+
+<BaseLayout
+  title="Smith Lake Water Levels — Current Elevation & Drawdown Guide | FishSmithLake.com"
+  description="Current Smith Lake water levels, full pool elevation (510 ft), seasonal drawdown patterns, and how lake levels affect fishing at Lewis Smith Lake, Alabama."
+>
+  <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem;">
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Smith Lake Water Levels</h1>
+    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2rem;">Current elevation, full pool reference, and how to use water level data to fish smarter.</p>
+
+    <WaterLevelWidget />
+
+    <div class="prose-lake">
+
+      <h2>Smith Lake Full Pool Elevation</h2>
+      <p>Lewis Smith Lake's full pool elevation — the target water level that Alabama Power tries to maintain during summer — is <strong>510 feet above mean sea level</strong>. At full pool, the lake covers approximately 21,000 surface acres with 642 miles of shoreline. The maximum depth reaches 264 feet near the dam.</p>
+
+      <p>Water elevation is measured continuously by Alabama Power and reported through their shoreline management system. The current level is directly relevant to fishing, navigation, dock access, and shoreline conditions.</p>
+
+      <h2>How Water Levels Affect Fishing</h2>
+
+      <h3>High Water (At or Above Full Pool)</h3>
+      <p>When Smith Lake is at or above full pool, fish — especially bass — spread out into the flooded vegetation and timber that only gets inundated at high levels. This can be both a blessing and a challenge: the fish may be shallower and more active, but they have more places to hide. Work the flooded brush and timber edges with swimbaits, spinnerbaits, and shallow crankbaits. Crappie fishing around docks and timber is particularly good during high water periods.</p>
+
+      <h3>Normal Pool (510 ft ±2 feet)</h3>
+      <p>This is Smith Lake's "home base" condition and when most anglers see the lake. Structure is predictable, fish relate to normal points and ledges, and dock access is standard. Most of the fishing information on this site assumes near-normal pool conditions.</p>
+
+      <h3>Low Water / Drawdown (Below 506 ft)</h3>
+      <p>When Alabama Power draws down the lake — which happens most significantly in fall and winter — fish concentrate near remaining water. A drawdown moves fish off the banks and compresses them onto main lake structure and channel edges. This can actually create excellent fishing: there's less water to cover, and the fish are more predictable. However, low water exposes rocks, stumps, and shallow bars that can damage hulls and props at normal pool. Know the lake's hazards and run slower in unfamiliar areas during a drawdown.</p>
+
+      <p>Typically, the winter drawdown at Smith Lake begins in late October or November and reaches its lowest point in January or February before the lake is refilled for the spring and summer recreation season.</p>
+
+      <h2>Seasonal Water Level Patterns</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem;">
+        <thead>
+          <tr style="background: #f0f7f2; border-bottom: 2px solid #D8E8D8;">
+            <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Month</th>
+            <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Typical Level</th>
+            <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Fishing Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #D8E8D8;">
+            <td style="padding: 0.6rem 0.75rem;">Jan–Feb</td>
+            <td style="padding: 0.6rem 0.75rem;">505–507 ft (low)</td>
+            <td style="padding: 0.6rem 0.75rem;">Fish concentrated on deep structure; good striper jigging</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D8E8D8; background: #fafafa;">
+            <td style="padding: 0.6rem 0.75rem;">Mar–Apr</td>
+            <td style="padding: 0.6rem 0.75rem;">Rising toward 510 ft</td>
+            <td style="padding: 0.6rem 0.75rem;">Spawning fish moving shallow; excellent bass and crappie</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D8E8D8;">
+            <td style="padding: 0.6rem 0.75rem;">May–Sep</td>
+            <td style="padding: 0.6rem 0.75rem;">At or near 510 ft</td>
+            <td style="padding: 0.6rem 0.75rem;">Full pool; standard conditions for all species</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #D8E8D8; background: #fafafa;">
+            <td style="padding: 0.6rem 0.75rem;">Oct–Nov</td>
+            <td style="padding: 0.6rem 0.75rem;">509–507 ft (falling)</td>
+            <td style="padding: 0.6rem 0.75rem;">Fish moving; excellent fall topwater and striper action</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.6rem 0.75rem;">Dec</td>
+            <td style="padding: 0.6rem 0.75rem;">506–505 ft (low)</td>
+            <td style="padding: 0.6rem 0.75rem;">Drawdown; fish on main lake structure; deep jigging</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Dock and Shoreline Access During Drawdowns</h2>
+      <p>A significant winter drawdown can leave boat docks sitting high and dry — or with very limited water depth. Many lakefront homeowners on Smith Lake extend their dock sections or add gangways specifically to accommodate drawdown conditions. If you're planning a winter fishing trip, check the current level and call ahead to the marina or launch you plan to use.</p>
+
+      <p>Understanding how drawdowns affect your specific property or the areas you fish is something Justin Dyar covers thoroughly with buyers looking at Smith Lake property. After 20-plus years on the lake, he's seen every level condition and knows which properties have dependable year-round access and which have limitations. Reach him at <a href="https://justindyar.com" target="_blank" rel="noopener">justindyar.com</a> or (205) 468-6375.</p>
+
+    </div>
+  </div>
+</BaseLayout>

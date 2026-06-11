@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    slug: 'best-time-to-fish-smith-lake',
+    title: 'Best Time of Year to Fish Smith Lake',
+    description: 'A complete seasonal breakdown — when to target spotted bass on the spawn, when stripers are blowing up on shad, and when winter jigging pays off.',
+    pubDate: '2024-03-01',
+    tags: ['Seasonal', 'Tips'],
+  },
+  {
+    slug: 'beginner-guide-fishing-smith-lake',
+    title: "Beginner's Guide to Fishing Lewis Smith Lake",
+    description: 'First time on Smith Lake? Here\'s everything you need — license requirements, which launch to use, what species to target first, and how to approach the clear water.',
+    pubDate: '2024-03-10',
+    tags: ['Beginner', 'Tips'],
+  },
+  {
+    slug: 'summer-fishing-tips-smith-lake',
+    title: 'Summer Fishing Tips for Lewis Smith Lake',
+    description: 'Beat the heat and find fish — deep structure, early morning topwater, and the night fishing tactics that produce when summer is at its worst.',
+    pubDate: '2024-06-01',
+    tags: ['Summer', 'Techniques'],
+  },
+  {
+    slug: 'winter-fishing-smith-lake',
+    title: 'Winter Fishing on Lewis Smith Lake',
+    description: 'Cold water, fewer boats, and hungry fish. Why winter at Smith Lake can be surprisingly productive — and the techniques that work when temperatures drop.',
+    pubDate: '2024-01-15',
+    tags: ['Winter', 'Techniques'],
+  },
+  {
+    slug: 'smith-lake-fishing-report-spring',
+    title: 'Smith Lake Fishing Report: Spring',
+    description: 'Spring conditions on Smith Lake — prespawn bass, crappie in the coves, and the first striper blowups of the year. What to expect and where to go.',
+    pubDate: '2024-04-01',
+    tags: ['Spring', 'Fishing Report'],
+  },
+];
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<BaseLayout
+  title="Fishing Blog — Lewis Smith Lake Tips, Reports & Guides | FishSmithLake.com"
+  description="Smith Lake fishing blog — seasonal fishing reports, technique guides, tips for spotted bass, striped bass, crappie, and catfish at Lewis Smith Lake, Alabama."
+>
+  <div style="max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem;">
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.5rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.5rem;">Smith Lake Fishing Blog</h1>
+    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2.5rem;">Seasonal reports, technique breakdowns, and practical advice from the water.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      {posts.map(post => (
+        <article style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+            {post.tags.map((tag: string) => (
+              <span style="background: #e6f4ec; color: #2D6A4F; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500;">{tag}</span>
+            ))}
+          </div>
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; font-weight: 700; margin: 0;">
+            <a href={`/blog/${post.slug}`} style="color: #1A2E1A; text-decoration: none;">{post.title}</a>
+          </h2>
+          <p style="font-size: 0.8rem; color: #7A9A7A; margin: 0;">{formatDate(post.pubDate)}</p>
+          <p style="font-size: 0.925rem; color: #4a5a4a; line-height: 1.65; margin: 0;">{post.description}</p>
+          <a href={`/blog/${post.slug}`} style="color: #2D6A4F; text-decoration: none; font-size: 0.875rem; font-weight: 600; align-self: flex-start;">Read More →</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

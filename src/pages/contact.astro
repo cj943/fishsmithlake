@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact FishSmithLake.com | Lewis Smith Lake Fishing Resource"
+  description="Get in touch with FishSmithLake.com — report errors, share local fishing knowledge, or ask questions about Lewis Smith Lake fishing."
+>
+  <div style="max-width: 700px; margin: 0 auto; padding: 3rem 1.5rem;">
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.5rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Contact Us</h1>
+    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2.5rem;">Got a correction, a tip, or a question about Smith Lake? We'd love to hear from you.</p>
+
+    <div class="prose-lake" style="margin-bottom: 2.5rem;">
+      <h2>What to Reach Out About</h2>
+      <ul>
+        <li><strong>Corrections or outdated info</strong> — If something on this site is wrong or out of date, let us know. We rely on people who know the lake to keep this accurate.</li>
+        <li><strong>Local knowledge</strong> — If you have Smith Lake fishing knowledge worth sharing with other anglers, we want to hear it. Locals make this site better.</li>
+        <li><strong>Partnership inquiries</strong> — If you're a local business, guide service, or marina on Smith Lake and want to be included in our resources, reach out.</li>
+        <li><strong>Advertising</strong> — For information about advertising on FishSmithLake.com, use the form below.</li>
+      </ul>
+
+      <p>For real estate questions specific to buying or selling on Smith Lake, please contact <a href="https://justindyar.com" target="_blank" rel="noopener">Justin Dyar directly at justindyar.com</a> or call (205) 468-6375 — he's the best resource for that.</p>
+    </div>
+
+    <form style="display: flex; flex-direction: column; gap: 1.25rem;" onsubmit="event.preventDefault(); document.getElementById('form-success').style.display='block'; this.style.display='none';">
+      <div>
+        <label for="name" style="display: block; font-size: 0.875rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.35rem;">Your Name</label>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #D8E8D8; border-radius: 5px; font-size: 0.925rem; font-family: Inter, sans-serif; color: #1A2E1A; background: white; box-sizing: border-box;" placeholder="Smith Lake Angler" />
+      </div>
+      <div>
+        <label for="email" style="display: block; font-size: 0.875rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.35rem;">Email Address</label>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #D8E8D8; border-radius: 5px; font-size: 0.925rem; font-family: Inter, sans-serif; color: #1A2E1A; background: white; box-sizing: border-box;" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label for="subject" style="display: block; font-size: 0.875rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.35rem;">Subject</label>
+        <select id="subject" name="subject" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #D8E8D8; border-radius: 5px; font-size: 0.925rem; font-family: Inter, sans-serif; color: #1A2E1A; background: white; box-sizing: border-box;">
+          <option value="correction">Correction or outdated info</option>
+          <option value="tip">Fishing tip or local knowledge</option>
+          <option value="partnership">Partnership inquiry</option>
+          <option value="advertising">Advertising</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="message" style="display: block; font-size: 0.875rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.35rem;">Message</label>
+        <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #D8E8D8; border-radius: 5px; font-size: 0.925rem; font-family: Inter, sans-serif; color: #1A2E1A; background: white; box-sizing: border-box; resize: vertical;" placeholder="Tell us what you know..."></textarea>
+      </div>
+      <button type="submit" style="background-color: #2D6A4F; color: #F7F9F4; border: none; padding: 0.75rem 1.75rem; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: Inter, sans-serif; align-self: flex-start;">Send Message</button>
+    </form>
+
+    <div id="form-success" style="display: none; background: #f0f7f2; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.5rem; margin-top: 1rem;">
+      <p style="color: #2D6A4F; font-weight: 600; margin-bottom: 0.35rem;">Message received — thank you.</p>
+      <p style="font-size: 0.9rem; color: #4a5a4a;">We'll be in touch if we have questions or updates. Now get back to fishing.</p>
+    </div>
+
+    <div style="margin-top: 2.5rem; font-size: 0.825rem; color: #7A9A7A; line-height: 1.6;">
+      <p>FishSmithLake.com is an independent resource. We're not affiliated with Alabama Power, the Alabama DCNR, or any government agency. For official matters, contact those organizations directly.</p>
+    </div>
+  </div>
+</BaseLayout>

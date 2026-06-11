@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lake-bg: #F7F9F4;
+  --color-lake-text: #1A2E1A;
+  --color-lake-green: #2D6A4F;
+  --color-lake-light: #52B788;
+  --color-lake-card: #FFFFFF;
+  --color-lake-border: #D8E8D8;
+  --color-lake-footer: #1A2E1A;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: Inter, system-ui, sans-serif;
+}
+
+body {
+  background-color: #F7F9F4;
+  color: #1A2E1A;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.topo-band {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 18px,
+      rgba(45, 106, 79, 0.07) 18px,
+      rgba(45, 106, 79, 0.07) 20px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 38px,
+      rgba(45, 106, 79, 0.04) 38px,
+      rgba(45, 106, 79, 0.04) 40px
+    );
+}
+
+.prose-lake h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  color: #2D6A4F;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-lake h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  color: #1A2E1A;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-lake p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.prose-lake ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-lake ul li {
+  margin-bottom: 0.35rem;
+  line-height: 1.7;
+}
+
+.prose-lake a {
+  color: #2D6A4F;
+  text-decoration: underline;
+}
+
+.prose-lake a:hover {
+  color: #52B788;
+}
+
+.affiliate-link {
+  display: inline-block;
+  background-color: #2D6A4F;
+  color: #F7F9F4 !important;
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0.25rem 0;
+  transition: background-color 0.2s;
+}
+
+.affiliate-link:hover {
+  background-color: #52B788 !important;
+  color: #1A2E1A !important;
+}
