@@ -41,6 +41,7 @@ const posts: Record<string, { title: string; description: string; pubDate: strin
     html: `<p>Summer is the most challenging season to fish Lewis Smith Lake — and also one of the most rewarding if you adjust your approach. When air temperatures push into the 90s, most fish make one of three moves: they go deep, they go nocturnal, or they feed in a concentrated burst at first light.</p>
 <h2>The Early Morning Window</h2>
 <p>The single best move on a summer day at Smith Lake is to launch before sunrise. The first two hours of light — roughly 5:30am to 8:00am — are when surface temperatures are at their lowest and spotted bass push shallow. Work main lake points and rocky bank transitions with topwater lures: a Heddon Super Spook Jr, a Whopper Plopper, or a topwater popper walked along the surface in the low light produces violent strikes. By 9am on a July day, surface temps are climbing fast. Most experienced Smith Lake summer anglers are back at the dock by 10 or out on deep structure.</p>
+<img src="/images/spotted-bass.webp" alt="Spotted Bass illustration — Smith Lake, Alabama" style="display:block;max-width:360px;width:100%;margin:1.5rem auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.1));" />
 <h2>Going Deep: The Midday Game</h2>
 <p>When surface temps send spotted bass deep, they concentrate on main lake structure in 25–45 feet. Look for ledges and channel edges, submerged timber in 20–35 feet, and rocky points that dive sharply. For presentations, the drop shot dominates summer deep fishing. Also effective: a Ned rig on a 3/16 oz mushroom head, worked slowly along ledges. Line matters enormously — 6-to-8-pound fluorocarbon is standard for finesse applications.</p>
 <h2>Striper Opportunities in Summer</h2>
@@ -73,6 +74,7 @@ const posts: Record<string, { title: string; description: string; pubDate: strin
     html: `<p>Spring at Lewis Smith Lake arrives gradually but unmistakably. When the redbuds bloom along the bluffs and water temperature climbs through the 50s, every species on the lake responds. This is the season regulars plan their trips around.</p>
 <h2>Water Temperature is Everything</h2>
 <p>Spring fishing at Smith Lake is governed by water temperature more than any other variable. At <strong>55–62°F</strong>, prespawn feeding peaks — spotted bass stack on transition banks adjacent to spawning flats. At <strong>62–68°F</strong>, spawn begins and both bass and crappie move shallow. At <strong>68°F+</strong>, post-spawn begins but fish remain relatively catchable.</p>
+<img src="/images/spotted-bass.webp" alt="Spotted Bass illustration — Smith Lake, Alabama" style="display:block;max-width:360px;width:100%;margin:1.5rem auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.1));" />
 <h2>Spotted Bass: Prespawn is Prime</h2>
 <p>The prespawn period — typically late March through mid-April — is the best spotted bass fishing of the year at Smith Lake. Fish are concentrated, accessible, and aggressive. Look for transition banks connecting 15-foot flats to 5-foot spawning areas, and rocky points where the bank transitions from deep to shallow. Drop shots, shaky heads, and small swimbaits on 6–8 lb fluorocarbon are the go-to presentations.</p>
 <h2>Crappie: Best Access of the Year</h2>
@@ -109,7 +111,7 @@ function formatDate(dateStr: string) {
 ---
 
 <BaseLayout title={`${post.title} | FishSmithLake.com`} description={post.description}>
-  <div style="max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem;">
+  <div style="max-width: 760px; margin: 0 auto; padding: 3rem 1rem;">
     <div style="margin-bottom: 0.75rem;">
       <a href="/blog" style="font-size: 0.8rem; color: #7A9A7A; text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em;">← Blog</a>
     </div>
@@ -121,7 +123,14 @@ function formatDate(dateStr: string) {
     </div>
 
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.65rem, 4vw, 2.5rem); color: #1A2E1A; line-height: 1.25; margin-bottom: 0.5rem;">{post.title}</h1>
-    <p style="font-size: 0.85rem; color: #7A9A7A; margin-bottom: 2rem;">{formatDate(post.pubDate)}</p>
+    <p style="font-size: 0.85rem; color: #7A9A7A; margin-bottom: 1.5rem;">{formatDate(post.pubDate)}</p>
+
+    <!-- Hero image between title and first paragraph -->
+    <img
+      src="/images/smith-lake-hero.webp"
+      alt="Lewis Smith Lake, Alabama — early morning on the water"
+      style="width: 100%; max-height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem;"
+    />
 
     <div class="prose-lake" set:html={post.html} />
 

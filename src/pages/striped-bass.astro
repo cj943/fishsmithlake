@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import JustinCard from '../components/JustinCard.astro';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 ---
 
@@ -8,10 +7,12 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
   title="Striped Bass Fishing at Smith Lake, Alabama | FishSmithLake.com"
   description="Guide to catching striped bass at Lewis Smith Lake. Best times, locations, umbrella rigs, jigs, and everything you need to know about Smith Lake stripers."
 >
-  <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem;">
+  <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
     <div style="font-size: 0.8rem; color: #7A9A7A; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;"><a href="/smith-lake-fishing-guide" style="color: #7A9A7A; text-decoration: none;">Fishing Guide</a> › Species</div>
-    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Striped Bass Fishing at Lewis Smith Lake</h1>
-    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2rem;">Open-water bruisers that chase shad in schools — and create some of the most exciting fishing moments on the lake.</p>
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Striped Bass Fishing at Lewis Smith Lake</h1>
+    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 1.5rem;">Open-water bruisers that chase shad in schools — and create some of the most exciting fishing moments on the lake.</p>
+
+    <img src="/images/striped-bass.webp" alt="Striped Bass illustration — Smith Lake, Alabama" style="display: block; max-width: 480px; width: 100%; margin: 0 auto 1.5rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.12));" />
 
     <AffiliateDisclosure />
 
@@ -37,14 +38,16 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
         <li><strong>Dam area</strong> — Stripers stack up near the dam in winter, attracted to the current and deep, cool water.</li>
         <li><strong>Point intersections</strong> — Where two points create a funnel into a large cove is a classic striper ambush spot in fall.</li>
         <li><strong>Shad schools</strong> — In fall, simply follow the birds. Where birds are diving, shad are on the surface — and stripers are below.</li>
-        <li><strong>Creek mouths</strong> — In fall, striper school at creek mouths waiting for shad to exit creek arms.</li>
+        <li><strong>Creek mouths</strong> — In fall, stripers school at creek mouths waiting for shad to exit creek arms.</li>
       </ul>
+
+      <p>Local knowledge matters more than any map when it comes to finding stripers. If you're new to the lake, connecting with someone who's spent years on the water is worth its weight in gold.</p>
 
       <h2>Recommended Tackle & Lures</h2>
 
       <h3>Fall Topwater & Reaction Baits</h3>
       <ul>
-        <li><strong>Umbrella rig (Alabama Rig)</strong> — The most effective tool for schooling stripers when they're feeding on shad. Match swimbait size to the local shad. <a href="#affiliate-umbrella" class="affiliate-link">[AMAZON AFFILIATE LINK: "Alabama Rig - 5-Wire Umbrella Rig Striper Setup"]</a></li>
+        <li><strong>Umbrella rig (Alabama Rig)</strong> — The most effective tool for schooling stripers when they're feeding on shad. <a href="#affiliate-umbrella" class="affiliate-link">[AMAZON AFFILIATE LINK: "Alabama Rig - 5-Wire Umbrella Rig Striper Setup"]</a></li>
         <li><strong>Large swimbait</strong> — A 5-to-7-inch paddle tail swimbait on a heavy jig head mimics a shad perfectly. <a href="#affiliate-bigswim" class="affiliate-link">[AMAZON AFFILIATE LINK: "Keitech Swing Impact FAT 5.8 Inch Swimbait"]</a></li>
         <li><strong>Topwater pencil bait</strong> — When stripers are blowing up on surface, a walk-the-dog lure in chrome or white triggers immediate strikes. <a href="#affiliate-pencil" class="affiliate-link">[AMAZON AFFILIATE LINK: "Heddon One Knocker Spook - Chrome"]</a></li>
       </ul>
@@ -65,7 +68,6 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
         <li>Stripers are excellent table fare — but check the current size and creel limits in Alabama regulations</li>
       </ul>
 
-      <JustinCard />
     </div>
   </div>
 </BaseLayout>

@@ -1,81 +1,188 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import WaterLevelWidget from '../components/WaterLevelWidget.astro';
 ---
 
 <BaseLayout
-  title="Smith Lake Water Levels — Current Elevation & Drawdown Guide | FishSmithLake.com"
-  description="Current Smith Lake water levels, full pool elevation (510 ft), seasonal drawdown patterns, and how lake levels affect fishing at Lewis Smith Lake, Alabama."
+  title="Smith Lake Water Levels — Live Data & Drawdown Guide | FishSmithLake.com"
+  description="Live Smith Lake water level data from USGS, full pool elevation (510 ft), seasonal drawdown patterns, and how lake levels affect fishing at Lewis Smith Lake, Alabama."
 >
-  <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem;">
-    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Smith Lake Water Levels</h1>
-    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2rem;">Current elevation, full pool reference, and how to use water level data to fish smarter.</p>
+  <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Smith Lake Water Levels</h1>
+    <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2rem;">Live elevation data, full pool reference, and how to use water level data to fish smarter.</p>
 
-    <WaterLevelWidget />
+    <!-- Live USGS Widget -->
+    <div id="water-level-card" style="border: 2px solid #D8E8D8; border-radius: 10px; padding: 1.5rem; background: white; margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+        <span id="status-dot" style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ccc; flex-shrink: 0;"></span>
+        <span id="live-label" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #7A9A7A;">Loading…</span>
+        <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 700; color: #1A2E1A; margin-left: 0.25rem;">Smith Lake Water Level</span>
+      </div>
+
+      <div id="level-reading" style="font-size: 2rem; font-weight: 700; color: #1A2E1A; margin-bottom: 0.25rem;">—</div>
+      <div style="font-size: 0.875rem; color: #7A9A7A; margin-bottom: 1rem;">Full Pool Reference: <strong style="color: #1A2E1A;">510 ft MSL</strong></div>
+
+      <div id="pool-status" style="display: inline-block; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem; background: #f0f0f0; color: #888;">Checking…</div>
+
+      <div id="last-updated" style="font-size: 0.8rem; color: #9aaa9a;"></div>
+      <div style="font-size: 0.8rem; color: #9aaa9a; margin-top: 0.25rem;">Source: USGS Station 02450250 (Lewis Smith Lake, AL)</div>
+    </div>
+
+    <div id="error-card" style="display: none; border: 1px solid #e6d97a; background: #fffbe6; border-radius: 8px; padding: 1.25rem; margin-bottom: 2rem; font-size: 0.9rem; color: #5a5020; line-height: 1.6;">
+      Live data temporarily unavailable. Check current levels at <a href="https://apcshorelines.com/lake/smith/" target="_blank" rel="noopener" style="color: #2D6A4F;">apcshorelines.com/lake/smith/</a>
+    </div>
 
     <div class="prose-lake">
 
-      <h2>Smith Lake Full Pool Elevation</h2>
-      <p>Lewis Smith Lake's full pool elevation — the target water level that Alabama Power tries to maintain during summer — is <strong>510 feet above mean sea level</strong>. At full pool, the lake covers approximately 21,000 surface acres with 642 miles of shoreline. The maximum depth reaches 264 feet near the dam.</p>
+      <h2>Why Do Water Levels Matter for Fishing?</h2>
+      <ul>
+        <li><strong>At full pool (510 ft):</strong> Bass are spread across all coves and structure. Topwater fishing is productive. All boat launches accessible.</li>
+        <li><strong>1–3 ft below pool:</strong> Fish concentrate near creek channels and deeper structure. Work points and channel edges for most consistent results.</li>
+        <li><strong>3+ ft below pool:</strong> Fish push to the main lake channel. Target the deepest available structure. Boat ramp access may be limited at some launches — call ahead.</li>
+      </ul>
 
-      <p>Water elevation is measured continuously by Alabama Power and reported through their shoreline management system. The current level is directly relevant to fishing, navigation, dock access, and shoreline conditions.</p>
+      <p><strong>Drawdown note:</strong> Alabama Power typically draws the lake down in winter for flood control and dam maintenance. Winter drawdown can reach 5–8 ft below full pool — and while that sounds bad, it actually concentrates fish for easier targeting. Main lake ledges and channel holes in 25–50 feet hold the most fish during deep drawdown periods.</p>
+
+      <p>For more on how water levels affect waterfront property on Smith Lake, local broker Justin Dyar has helpful resources at <a href="https://justindyar.com" target="_blank" rel="noopener">justindyar.com</a>.</p>
+
+      <h2>Smith Lake Full Pool Elevation</h2>
+      <p>Lewis Smith Lake's full pool elevation is <strong>510 feet above mean sea level</strong>. At full pool, the lake covers approximately 21,000 surface acres with 642 miles of shoreline. The maximum depth reaches 264 feet near the dam.</p>
 
       <h2>How Water Levels Affect Fishing</h2>
 
       <h3>High Water (At or Above Full Pool)</h3>
-      <p>When Smith Lake is at or above full pool, fish — especially bass — spread out into the flooded vegetation and timber that only gets inundated at high levels. This can be both a blessing and a challenge: the fish may be shallower and more active, but they have more places to hide. Work the flooded brush and timber edges with swimbaits, spinnerbaits, and shallow crankbaits. Crappie fishing around docks and timber is particularly good during high water periods.</p>
+      <p>When Smith Lake is at or above full pool, fish — especially bass — spread out into the flooded vegetation and timber that only gets inundated at high levels. Work the flooded brush and timber edges with swimbaits, spinnerbaits, and shallow crankbaits. Crappie fishing around docks and timber is particularly good during high water periods.</p>
 
       <h3>Normal Pool (510 ft ±2 feet)</h3>
-      <p>This is Smith Lake's "home base" condition and when most anglers see the lake. Structure is predictable, fish relate to normal points and ledges, and dock access is standard. Most of the fishing information on this site assumes near-normal pool conditions.</p>
+      <p>This is Smith Lake's "home base" condition. Structure is predictable, fish relate to normal points and ledges, and dock access is standard. Most of the fishing information on this site assumes near-normal pool conditions.</p>
 
       <h3>Low Water / Drawdown (Below 506 ft)</h3>
-      <p>When Alabama Power draws down the lake — which happens most significantly in fall and winter — fish concentrate near remaining water. A drawdown moves fish off the banks and compresses them onto main lake structure and channel edges. This can actually create excellent fishing: there's less water to cover, and the fish are more predictable. However, low water exposes rocks, stumps, and shallow bars that can damage hulls and props at normal pool. Know the lake's hazards and run slower in unfamiliar areas during a drawdown.</p>
-
-      <p>Typically, the winter drawdown at Smith Lake begins in late October or November and reaches its lowest point in January or February before the lake is refilled for the spring and summer recreation season.</p>
+      <p>A drawdown moves fish off the banks and compresses them onto main lake structure and channel edges. This can actually create excellent fishing: there's less water to cover, and the fish are more predictable. However, low water exposes rocks, stumps, and shallow bars — run slower in unfamiliar areas during a drawdown.</p>
 
       <h2>Seasonal Water Level Patterns</h2>
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem;">
-        <thead>
-          <tr style="background: #f0f7f2; border-bottom: 2px solid #D8E8D8;">
-            <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Month</th>
-            <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Typical Level</th>
-            <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Fishing Impact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid #D8E8D8;">
-            <td style="padding: 0.6rem 0.75rem;">Jan–Feb</td>
-            <td style="padding: 0.6rem 0.75rem;">505–507 ft (low)</td>
-            <td style="padding: 0.6rem 0.75rem;">Fish concentrated on deep structure; good striper jigging</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #D8E8D8; background: #fafafa;">
-            <td style="padding: 0.6rem 0.75rem;">Mar–Apr</td>
-            <td style="padding: 0.6rem 0.75rem;">Rising toward 510 ft</td>
-            <td style="padding: 0.6rem 0.75rem;">Spawning fish moving shallow; excellent bass and crappie</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #D8E8D8;">
-            <td style="padding: 0.6rem 0.75rem;">May–Sep</td>
-            <td style="padding: 0.6rem 0.75rem;">At or near 510 ft</td>
-            <td style="padding: 0.6rem 0.75rem;">Full pool; standard conditions for all species</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #D8E8D8; background: #fafafa;">
-            <td style="padding: 0.6rem 0.75rem;">Oct–Nov</td>
-            <td style="padding: 0.6rem 0.75rem;">509–507 ft (falling)</td>
-            <td style="padding: 0.6rem 0.75rem;">Fish moving; excellent fall topwater and striper action</td>
-          </tr>
-          <tr>
-            <td style="padding: 0.6rem 0.75rem;">Dec</td>
-            <td style="padding: 0.6rem 0.75rem;">506–505 ft (low)</td>
-            <td style="padding: 0.6rem 0.75rem;">Drawdown; fish on main lake structure; deep jigging</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem;">
+          <thead>
+            <tr style="background: #f0f7f2; border-bottom: 2px solid #D8E8D8;">
+              <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Month</th>
+              <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Typical Level</th>
+              <th style="text-align: left; padding: 0.6rem 0.75rem; color: #2D6A4F;">Fishing Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #D8E8D8;">
+              <td style="padding: 0.6rem 0.75rem;">Jan–Feb</td>
+              <td style="padding: 0.6rem 0.75rem;">505–507 ft (low)</td>
+              <td style="padding: 0.6rem 0.75rem;">Fish concentrated on deep structure; good striper jigging</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D8E8D8; background: #fafafa;">
+              <td style="padding: 0.6rem 0.75rem;">Mar–Apr</td>
+              <td style="padding: 0.6rem 0.75rem;">Rising toward 510 ft</td>
+              <td style="padding: 0.6rem 0.75rem;">Spawning fish moving shallow; excellent bass and crappie</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D8E8D8;">
+              <td style="padding: 0.6rem 0.75rem;">May–Sep</td>
+              <td style="padding: 0.6rem 0.75rem;">At or near 510 ft</td>
+              <td style="padding: 0.6rem 0.75rem;">Full pool; standard conditions for all species</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #D8E8D8; background: #fafafa;">
+              <td style="padding: 0.6rem 0.75rem;">Oct–Nov</td>
+              <td style="padding: 0.6rem 0.75rem;">509–507 ft (falling)</td>
+              <td style="padding: 0.6rem 0.75rem;">Fish moving; excellent fall topwater and striper action</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.6rem 0.75rem;">Dec</td>
+              <td style="padding: 0.6rem 0.75rem;">506–505 ft (low)</td>
+              <td style="padding: 0.6rem 0.75rem;">Drawdown; fish on main lake structure; deep jigging</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>Dock and Shoreline Access During Drawdowns</h2>
       <p>A significant winter drawdown can leave boat docks sitting high and dry — or with very limited water depth. Many lakefront homeowners on Smith Lake extend their dock sections or add gangways specifically to accommodate drawdown conditions. If you're planning a winter fishing trip, check the current level and call ahead to the marina or launch you plan to use.</p>
 
-      <p>Understanding how drawdowns affect your specific property or the areas you fish is something Justin Dyar covers thoroughly with buyers looking at Smith Lake property. After 20-plus years on the lake, he's seen every level condition and knows which properties have dependable year-round access and which have limitations. Reach him at <a href="https://justindyar.com" target="_blank" rel="noopener">justindyar.com</a> or (205) 468-6375.</p>
-
     </div>
   </div>
+
+  <script>
+    (async function() {
+      const readingEl = document.getElementById('level-reading');
+      const statusEl = document.getElementById('pool-status');
+      const dotEl = document.getElementById('status-dot');
+      const labelEl = document.getElementById('live-label');
+      const updatedEl = document.getElementById('last-updated');
+      const errorCard = document.getElementById('error-card');
+      const levelCard = document.getElementById('water-level-card');
+
+      try {
+        const res = await fetch(
+          'https://waterservices.usgs.gov/nwis/iv/?sites=02450250&parameterCd=00065&format=json',
+          { signal: AbortSignal.timeout(8000) }
+        );
+        if (!res.ok) throw new Error('API error');
+        const data = await res.json();
+
+        const series = data?.value?.timeSeries;
+        if (!series || series.length === 0) throw new Error('No data');
+
+        const values = series[0]?.values?.[0]?.value;
+        if (!values || values.length === 0) throw new Error('No values');
+
+        const latest = values[values.length - 1];
+        const gageHeight = parseFloat(latest.value);
+        const timestamp = new Date(latest.dateTime);
+
+        if (isNaN(gageHeight)) throw new Error('Invalid reading');
+
+        // Display the gage height reading
+        if (readingEl) readingEl.textContent = `Gage Height: ${gageHeight.toFixed(2)} ft`;
+
+        // Status logic — USGS gage at this station reads relative to sensor datum.
+        // Full pool at Smith Lake is 510 ft MSL. The gage reads feet above sensor.
+        // We show status based on relative gage height vs historical full-pool reading.
+        // At full pool (~510 ft MSL), gage typically reads around 100–105 ft.
+        // We use threshold deltas to convey approximate pool status.
+        let statusText = '';
+        let statusBg = '';
+        let statusColor = '';
+        let dotColor = '';
+
+        // Determine status relative to approximate full-pool gage reading.
+        // We use a conservative offset approach: flag notable deviations by range.
+        // Users should confirm exact values against apcshorelines.com.
+        if (gageHeight >= 99) {
+          statusText = 'At or near full pool';
+          statusBg = '#e6f4ec'; statusColor = '#2D6A4F'; dotColor = '#52B788';
+        } else if (gageHeight >= 96) {
+          statusText = 'Slightly below full pool';
+          statusBg = '#fffbe6'; statusColor = '#8a6e00'; dotColor = '#e6b800';
+        } else if (gageHeight >= 93) {
+          statusText = 'Below full pool';
+          statusBg = '#fff3e6'; statusColor = '#8a4500'; dotColor = '#e67800';
+        } else {
+          statusText = 'Significant drawdown in effect';
+          statusBg = '#fde8e8'; statusColor = '#8a0000'; dotColor = '#d43';
+        }
+
+        if (statusEl) {
+          statusEl.textContent = statusText;
+          statusEl.style.background = statusBg;
+          statusEl.style.color = statusColor;
+        }
+        if (dotEl) dotEl.style.background = dotColor;
+        if (labelEl) { labelEl.textContent = 'LIVE'; labelEl.style.color = dotColor; }
+
+        const formatted = timestamp.toLocaleString('en-US', {
+          month: 'short', day: 'numeric', year: 'numeric',
+          hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
+        });
+        if (updatedEl) updatedEl.textContent = `Last updated: ${formatted}`;
+
+      } catch {
+        if (levelCard) levelCard.style.display = 'none';
+        if (errorCard) errorCard.style.display = 'block';
+      }
+    })();
+  </script>
+
 </BaseLayout>

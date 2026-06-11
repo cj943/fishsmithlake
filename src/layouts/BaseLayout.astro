@@ -24,25 +24,35 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <!-- styles loaded via frontmatter import -->
   <!-- Google AdSense: insert script tag here when approved -->
+  <style>
+    /* Mobile global overrides */
+    @media (max-width: 480px) {
+      .cta-btn { display: block; width: 100%; text-align: center; box-sizing: border-box; }
+    }
+    /* Prevent horizontal scroll globally */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img { max-width: 100%; height: auto; }
+    /* Scrollable tables */
+    .table-wrap { overflow-x: auto; }
+  </style>
 </head>
 <body style="background-color: #F7F9F4; color: #1A2E1A; font-family: Inter, system-ui, sans-serif;">
 
   <!-- Navigation -->
   <header style="background-color: #fff; border-bottom: 1px solid #D8E8D8; position: sticky; top: 0; z-index: 50;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 64px;">
-      <a href="/" style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: #2D6A4F; text-decoration: none; white-space: nowrap;">FishSmithLake.com</a>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; height: 64px;">
+      <a href="/" style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1rem, 3.5vw, 1.35rem); font-weight: 700; color: #2D6A4F; text-decoration: none; white-space: nowrap; flex-shrink: 0;">FishSmithLake.com</a>
 
       <!-- Desktop nav -->
-      <nav style="display: flex; gap: 1.75rem; align-items: center;">
-        <a href="/" style="color: #1A2E1A; text-decoration: none; font-size: 0.9rem; font-weight: 500; display: none;" class="nav-desktop">Home</a>
+      <nav id="desktop-nav" style="display: flex; gap: 1.75rem; align-items: center;">
         <a href="/smith-lake-fishing-guide" style="color: #1A2E1A; text-decoration: none; font-size: 0.9rem; font-weight: 500;">Fishing Guide</a>
         <div style="position: relative; display: inline-block;" class="dropdown-wrapper">
-          <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'" style="background: none; border: none; color: #1A2E1A; font-size: 0.9rem; font-weight: 500; cursor: pointer; padding: 0; font-family: Inter, system-ui, sans-serif;">Species ▾</button>
-          <div style="display: none; position: absolute; top: 100%; left: 0; background: white; border: 1px solid #D8E8D8; border-radius: 6px; min-width: 180px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); z-index: 100; padding: 0.5rem 0;">
-            <a href="/spotted-bass" style="display: block; padding: 0.5rem 1rem; color: #1A2E1A; text-decoration: none; font-size: 0.875rem;">Spotted Bass</a>
-            <a href="/striped-bass" style="display: block; padding: 0.5rem 1rem; color: #1A2E1A; text-decoration: none; font-size: 0.875rem;">Striped Bass</a>
-            <a href="/crappie" style="display: block; padding: 0.5rem 1rem; color: #1A2E1A; text-decoration: none; font-size: 0.875rem;">Crappie</a>
-            <a href="/catfish" style="display: block; padding: 0.5rem 1rem; color: #1A2E1A; text-decoration: none; font-size: 0.875rem;">Catfish</a>
+          <button id="species-btn" aria-expanded="false" aria-haspopup="true" style="background: none; border: none; color: #1A2E1A; font-size: 0.9rem; font-weight: 500; cursor: pointer; padding: 0; font-family: Inter, system-ui, sans-serif;">Species ▾</button>
+          <div id="species-menu" role="menu" style="display: none; position: absolute; top: 100%; left: 0; background: white; border: 1px solid #D8E8D8; border-radius: 6px; min-width: 180px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); z-index: 100; padding: 0.5rem 0;">
+            <a href="/spotted-bass" role="menuitem" style="display: block; padding: 0.65rem 1rem; color: #1A2E1A; text-decoration: none; font-size: 0.875rem; min-height: 44px; display: flex; align-items: center;">Spotted Bass</a>
+            <a href="/striped-bass" role="menuitem" style="display: block; padding: 0.65rem 1rem; color: #1A2E1A; text-decoration: none; font-size: 0.875rem; min-height: 44px; display: flex; align-items: center;">Striped Bass</a>
+            <a href="/crappie" role="menuitem" style="display: block; padding: 0.65rem 1rem; color: #1A2E1A; text-decoration: none; font-size: 0.875rem; min-height: 44px; display: flex; align-items: center;">Crappie</a>
+            <a href="/catfish" role="menuitem" style="display: block; padding: 0.65rem 1rem; color: #1A2E1A; text-decoration: none; font-size: 0.875rem; min-height: 44px; display: flex; align-items: center;">Catfish</a>
           </div>
         </div>
         <a href="/best-fishing-spots" style="color: #1A2E1A; text-decoration: none; font-size: 0.9rem; font-weight: 500;">Spots</a>
@@ -51,7 +61,7 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
       </nav>
 
       <!-- Mobile hamburger -->
-      <button id="menu-btn" aria-label="Open menu" style="display: none; background: none; border: none; cursor: pointer; padding: 0.25rem;">
+      <button id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" style="display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; min-width: 44px; min-height: 44px; align-items: center; justify-content: center;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A2E1A" stroke-width="2">
           <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
@@ -59,17 +69,17 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
     </div>
 
     <!-- Mobile nav drawer -->
-    <div id="mobile-menu" style="display: none; background: white; border-top: 1px solid #D8E8D8; padding: 1rem 1.5rem 1.5rem;">
-      <a href="/" style="display: block; padding: 0.6rem 0; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Home</a>
-      <a href="/smith-lake-fishing-guide" style="display: block; padding: 0.6rem 0; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Fishing Guide</a>
-      <a href="/spotted-bass" style="display: block; padding: 0.6rem 0 0.6rem 1rem; color: #1A2E1A; text-decoration: none; border-bottom: 1px solid #D8E8D8;">↳ Spotted Bass</a>
-      <a href="/striped-bass" style="display: block; padding: 0.6rem 0 0.6rem 1rem; color: #1A2E1A; text-decoration: none; border-bottom: 1px solid #D8E8D8;">↳ Striped Bass</a>
-      <a href="/crappie" style="display: block; padding: 0.6rem 0 0.6rem 1rem; color: #1A2E1A; text-decoration: none; border-bottom: 1px solid #D8E8D8;">↳ Crappie</a>
-      <a href="/catfish" style="display: block; padding: 0.6rem 0 0.6rem 1rem; color: #1A2E1A; text-decoration: none; border-bottom: 1px solid #D8E8D8;">↳ Catfish</a>
-      <a href="/best-fishing-spots" style="display: block; padding: 0.6rem 0; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Best Spots</a>
-      <a href="/blog" style="display: block; padding: 0.6rem 0; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Blog</a>
-      <a href="/smith-lake-real-estate" style="display: block; padding: 0.6rem 0; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Real Estate</a>
-      <a href="/contact" style="display: block; padding: 0.6rem 0; color: #1A2E1A; text-decoration: none; font-weight: 500;">Contact</a>
+    <div id="mobile-menu" aria-hidden="true" style="display: none; background: white; border-top: 1px solid #D8E8D8; padding: 0.5rem 1rem 1rem;">
+      <a href="/" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Home</a>
+      <a href="/smith-lake-fishing-guide" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Fishing Guide</a>
+      <a href="/spotted-bass" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem 0 1.5rem; color: #1A2E1A; text-decoration: none; border-bottom: 1px solid #D8E8D8; font-size: 0.95rem;">↳ Spotted Bass</a>
+      <a href="/striped-bass" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem 0 1.5rem; color: #1A2E1A; text-decoration: none; border-bottom: 1px solid #D8E8D8; font-size: 0.95rem;">↳ Striped Bass</a>
+      <a href="/crappie" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem 0 1.5rem; color: #1A2E1A; text-decoration: none; border-bottom: 1px solid #D8E8D8; font-size: 0.95rem;">↳ Crappie</a>
+      <a href="/catfish" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem 0 1.5rem; color: #1A2E1A; text-decoration: none; border-bottom: 1px solid #D8E8D8; font-size: 0.95rem;">↳ Catfish</a>
+      <a href="/best-fishing-spots" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Best Spots</a>
+      <a href="/blog" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Blog</a>
+      <a href="/smith-lake-real-estate" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem; color: #1A2E1A; text-decoration: none; font-weight: 500; border-bottom: 1px solid #D8E8D8;">Real Estate</a>
+      <a href="/contact" style="display: flex; align-items: center; min-height: 44px; padding: 0 0.5rem; color: #1A2E1A; text-decoration: none; font-weight: 500;">Contact</a>
     </div>
   </header>
 
@@ -79,7 +89,7 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
 
   <!-- Footer -->
   <footer style="background-color: #1A2E1A; color: #F7F9F4; padding: 3rem 1.5rem;">
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
       <div>
         <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #52B788;">FishSmithLake.com</div>
         <p style="font-size: 0.875rem; line-height: 1.7; color: #B8D4B8;">Your independent guide to fishing Lewis Smith Lake, Alabama. We cover spots, species, seasons, gear, and everything else an angler needs on the water.</p>
@@ -87,23 +97,22 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
       <div>
         <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #52B788; margin-bottom: 0.75rem; font-weight: 600;">Quick Links</div>
         <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="margin-bottom: 0.4rem;"><a href="/smith-lake-fishing-guide" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem;">Complete Fishing Guide</a></li>
-          <li style="margin-bottom: 0.4rem;"><a href="/best-fishing-spots" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem;">Best Fishing Spots</a></li>
-          <li style="margin-bottom: 0.4rem;"><a href="/water-levels" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem;">Water Levels</a></li>
-          <li style="margin-bottom: 0.4rem;"><a href="/fishing-regulations" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem;">Fishing Regulations</a></li>
-          <li style="margin-bottom: 0.4rem;"><a href="/boat-launches" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem;">Boat Launches</a></li>
-          <li style="margin-bottom: 0.4rem;"><a href="/blog" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem;">Blog</a></li>
-          <li style="margin-bottom: 0.4rem;"><a href="/contact" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem;">Contact</a></li>
+          <li style="margin-bottom: 0.4rem;"><a href="/smith-lake-fishing-guide" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem; display: block; min-height: 44px; display: flex; align-items: center;">Complete Fishing Guide</a></li>
+          <li style="margin-bottom: 0.4rem;"><a href="/best-fishing-spots" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; min-height: 44px;">Best Fishing Spots</a></li>
+          <li style="margin-bottom: 0.4rem;"><a href="/water-levels" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; min-height: 44px;">Water Levels</a></li>
+          <li style="margin-bottom: 0.4rem;"><a href="/fishing-regulations" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; min-height: 44px;">Fishing Regulations</a></li>
+          <li style="margin-bottom: 0.4rem;"><a href="/blog" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; min-height: 44px;">Blog</a></li>
+          <li><a href="/contact" style="color: #B8D4B8; text-decoration: none; font-size: 0.875rem; display: flex; align-items: center; min-height: 44px;">Contact</a></li>
         </ul>
       </div>
       <div>
-        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #52B788; margin-bottom: 0.75rem; font-weight: 600;">Thinking About Owning?</div>
-        <p style="font-size: 0.875rem; line-height: 1.7; color: #B8D4B8; margin-bottom: 0.75rem;">Looking to own waterfront on Smith Lake? Talk to Justin Dyar — Mr. Smith Lake — at <a href="https://justindyar.com" target="_blank" rel="noopener" style="color: #52B788;">justindyar.com</a> or call <a href="tel:2054686375" style="color: #52B788;">(205) 468-6375</a>.</p>
+        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #52B788; margin-bottom: 0.75rem; font-weight: 600;">On The Water</div>
+        <p style="font-size: 0.875rem; line-height: 1.7; color: #B8D4B8;">Waterfront real estate: <a href="https://justindyar.com" target="_blank" rel="noopener" style="color: #52B788; text-decoration: underline;">justindyar.com</a> — Justin Dyar, Smith Lake specialist.</p>
       </div>
     </div>
     <div style="max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: #7A9A7A; line-height: 1.6;">
       <p style="margin-bottom: 0.5rem;">FishSmithLake.com participates in the Amazon Associates program. We may earn a small commission on qualifying purchases at no extra cost to you.</p>
-      <p>© 2025 FishSmithLake.com — Independent fishing resource. Not affiliated with Alabama Power or any government agency.</p>
+      <p>© 2026 FishSmithLake.com — Independent fishing resource. Not affiliated with Alabama Power or any government agency.</p>
     </div>
   </footer>
 
@@ -111,27 +120,50 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
     // Mobile menu toggle
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
+
     btn?.addEventListener('click', () => {
-      if (menu) menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      const isOpen = menu?.style.display === 'block';
+      if (menu) {
+        menu.style.display = isOpen ? 'none' : 'block';
+        menu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+      }
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
     });
 
     // Responsive: show hamburger on small screens
     function checkWidth() {
       const isSmall = window.innerWidth < 768;
-      if (btn) btn.style.display = isSmall ? 'block' : 'none';
-      const desktopNav = document.querySelector('nav');
-      if (desktopNav) desktopNav.style.display = isSmall ? 'none' : 'flex';
+      const menuBtn = document.getElementById('menu-btn');
+      const desktopNav = document.getElementById('desktop-nav');
+      if (menuBtn) {
+        menuBtn.style.display = isSmall ? 'flex' : 'none';
+      }
+      if (desktopNav) {
+        desktopNav.style.display = isSmall ? 'none' : 'flex';
+      }
+      // Close mobile menu on resize to desktop
+      if (!isSmall && menu) {
+        menu.style.display = 'none';
+        menu.setAttribute('aria-hidden', 'true');
+      }
     }
     checkWidth();
     window.addEventListener('resize', checkWidth);
 
+    // Species dropdown toggle (works on both desktop click and mobile)
+    const speciesBtn = document.getElementById('species-btn');
+    const speciesMenu = document.getElementById('species-menu');
+    speciesBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = speciesMenu?.style.display === 'block';
+      if (speciesMenu) speciesMenu.style.display = isOpen ? 'none' : 'block';
+      speciesBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
+
     // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      document.querySelectorAll('.dropdown-wrapper > div').forEach(d => {
-        if (!d.parentElement?.contains(e.target as Node)) {
-          (d as HTMLElement).style.display = 'none';
-        }
-      });
+    document.addEventListener('click', () => {
+      if (speciesMenu) speciesMenu.style.display = 'none';
+      speciesBtn?.setAttribute('aria-expanded', 'false');
     });
   </script>
 

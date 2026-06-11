@@ -9,26 +9,27 @@ import JustinCard from '../components/JustinCard.astro';
   description="Your complete fishing resource for Lewis Smith Lake, Alabama. Species guides, best spots, water levels, regulations, and local tips from people who know the lake."
 >
 
-  <!-- Hero -->
-  <section style="background: linear-gradient(135deg, #1A2E1A 0%, #2D6A4F 60%, #52B788 100%); color: #F7F9F4; padding: 5rem 1.5rem 4rem;">
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.25rem;">Your Guide to Fishing Lewis Smith Lake, Alabama</h1>
-      <p style="font-size: clamp(1rem, 2.5vw, 1.2rem); color: #c8e8d8; line-height: 1.7; margin-bottom: 2rem; max-width: 640px; margin-left: auto; margin-right: auto;">Alabama's deepest and clearest reservoir — 264 feet at its deepest point and 21,000 surface acres of premier spotted bass, striped bass, crappie, and catfish water. This is the local's guide.</p>
+  <!-- Hero with background image + overlay -->
+  <section style="position: relative; background-image: url('/images/smith-lake-hero.webp'); background-size: cover; background-position: center; color: #F7F9F4; padding: 5rem 1.5rem 4rem;">
+    <div style="position: absolute; inset: 0; background: rgba(26, 46, 26, 0.55); z-index: 0;"></div>
+    <div style="position: relative; z-index: 1; max-width: 800px; margin: 0 auto; text-align: center;">
+      <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.25rem;">Your Guide to Fishing Lewis Smith Lake, Alabama</h1>
+      <p style="font-size: clamp(0.95rem, 2.5vw, 1.2rem); color: #c8e8d8; line-height: 1.7; margin-bottom: 2rem; max-width: 640px; margin-left: auto; margin-right: auto;">Alabama's deepest and clearest reservoir — 264 feet at its deepest point and 21,000 surface acres of premier spotted bass, striped bass, crappie, and catfish water. This is the local's guide.</p>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-        <a href="/smith-lake-fishing-guide" style="background: #F7F9F4; color: #1A2E1A; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Complete Fishing Guide</a>
-        <a href="/best-fishing-spots" style="background: transparent; color: #F7F9F4; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 2px solid rgba(255,255,255,0.6);">Best Fishing Spots</a>
+        <a href="/smith-lake-fishing-guide" class="cta-btn" style="background: #F7F9F4; color: #1A2E1A; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Complete Fishing Guide</a>
+        <a href="/best-fishing-spots" class="cta-btn" style="background: transparent; color: #F7F9F4; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 2px solid rgba(255,255,255,0.6);">Best Fishing Spots</a>
       </div>
     </div>
   </section>
 
-  <!-- Lake quick stats -->
+  <!-- Lake quick stats — 2-col on mobile via grid -->
   <div style="background: #2D6A4F; color: #F7F9F4; padding: 1rem 1.5rem;">
-    <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem 3rem; font-size: 0.9rem;">
-      <div style="text-align: center;"><div style="font-weight: 700; font-size: 1.1rem;">264 ft</div><div style="color: #a8d4b8; font-size: 0.8rem;">Maximum Depth</div></div>
-      <div style="text-align: center;"><div style="font-weight: 700; font-size: 1.1rem;">21,000 acres</div><div style="color: #a8d4b8; font-size: 0.8rem;">Surface Area</div></div>
-      <div style="text-align: center;"><div style="font-weight: 700; font-size: 1.1rem;">642 miles</div><div style="color: #a8d4b8; font-size: 0.8rem;">Shoreline</div></div>
-      <div style="text-align: center;"><div style="font-weight: 700; font-size: 1.1rem;">3 Counties</div><div style="color: #a8d4b8; font-size: 0.8rem;">Cullman · Walker · Winston</div></div>
-      <div style="text-align: center;"><div style="font-weight: 700; font-size: 1.1rem;">510 ft</div><div style="color: #a8d4b8; font-size: 0.8rem;">Full Pool Elevation</div></div>
+    <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.75rem 1.5rem; font-size: 0.9rem; text-align: center;">
+      <div><div style="font-weight: 700; font-size: 1.1rem;">264 ft</div><div style="color: #a8d4b8; font-size: 0.8rem;">Maximum Depth</div></div>
+      <div><div style="font-weight: 700; font-size: 1.1rem;">21,000 acres</div><div style="color: #a8d4b8; font-size: 0.8rem;">Surface Area</div></div>
+      <div><div style="font-weight: 700; font-size: 1.1rem;">642 miles</div><div style="color: #a8d4b8; font-size: 0.8rem;">Shoreline</div></div>
+      <div><div style="font-weight: 700; font-size: 1.1rem;">3 Counties</div><div style="color: #a8d4b8; font-size: 0.8rem;">Cullman · Walker · Winston</div></div>
+      <div><div style="font-weight: 700; font-size: 1.1rem;">510 ft</div><div style="color: #a8d4b8; font-size: 0.8rem;">Full Pool Elevation</div></div>
     </div>
   </div>
 
@@ -36,61 +37,118 @@ import JustinCard from '../components/JustinCard.astro';
   <div class="topo-band" style="height: 60px; background-color: #eef5f0;"></div>
 
   <!-- Intro section -->
-  <section style="max-width: 800px; margin: 0 auto; padding: 3.5rem 1.5rem 2rem;">
-    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.85rem; color: #2D6A4F; margin-bottom: 1rem;">Why Lewis Smith Lake?</h2>
+  <section style="max-width: 800px; margin: 0 auto; padding: 3.5rem 1rem 2rem;">
+    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.4rem, 4vw, 1.85rem); color: #2D6A4F; margin-bottom: 1rem;">Why Lewis Smith Lake?</h2>
     <p style="font-size: 1rem; line-height: 1.8; color: #1A2E1A; margin-bottom: 1rem;">Lewis Smith Lake isn't just another Alabama reservoir. Built by Alabama Power in the 1960s, it's the deepest lake in Alabama and one of the clearest bodies of water in the entire southeastern United States. That gin-clear water — sometimes with visibility exceeding 20 feet — creates a completely different fishing environment than the muddy impoundments anglers are used to.</p>
     <p style="font-size: 1rem; line-height: 1.8; color: #1A2E1A;">The lake spans Cullman, Walker, and Winston counties, stretching across three distinct arms with dramatic depth changes, steep rocky bluffs, submerged timber, and countless coves. It's home to trophy spotted bass, hard-fighting striped bass, excellent crappie fishing, and channel catfish. FishSmithLake.com is your independent, no-fluff resource for everything it takes to have a great day on the water here.</p>
   </section>
 
-  <!-- Start Here -->
-  <section style="background: #f0f7f2; padding: 2rem 1.5rem; border-top: 1px solid #D8E8D8; border-bottom: 1px solid #D8E8D8;">
+  <!-- Start Here — stacks on mobile -->
+  <section style="background: #f0f7f2; padding: 2rem 1rem; border-top: 1px solid #D8E8D8; border-bottom: 1px solid #D8E8D8;">
     <div style="max-width: 1000px; margin: 0 auto;">
-      <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; color: #1A2E1A; margin-bottom: 1.25rem; text-align: center;">Start Here</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
-        <a href="/smith-lake-fishing-guide" style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.25rem; text-decoration: none; display: block;">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📖</div>
-          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #2D6A4F; margin-bottom: 0.35rem;">Complete Fishing Guide</div>
-          <div style="font-size: 0.875rem; color: #4a5a4a; line-height: 1.5;">Everything you need to know — species, seasons, gear, first-timer tips.</div>
+      <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.25rem, 3vw, 1.5rem); color: #1A2E1A; margin-bottom: 1.25rem; text-align: center;">Start Here</h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <a href="/smith-lake-fishing-guide" style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.25rem; text-decoration: none; display: flex; align-items: flex-start; gap: 1rem;">
+          <div style="font-size: 1.5rem; flex-shrink: 0;">📖</div>
+          <div><div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #2D6A4F; margin-bottom: 0.25rem;">Complete Fishing Guide</div><div style="font-size: 0.875rem; color: #4a5a4a; line-height: 1.5;">Everything you need to know — species, seasons, gear, first-timer tips.</div></div>
         </a>
-        <a href="/best-fishing-spots" style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.25rem; text-decoration: none; display: block;">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📍</div>
-          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #2D6A4F; margin-bottom: 0.35rem;">Best Fishing Spots</div>
-          <div style="font-size: 0.875rem; color: #4a5a4a; line-height: 1.5;">Top coves and areas across all three arms of the lake.</div>
+        <a href="/best-fishing-spots" style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.25rem; text-decoration: none; display: flex; align-items: flex-start; gap: 1rem;">
+          <div style="font-size: 1.5rem; flex-shrink: 0;">📍</div>
+          <div><div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #2D6A4F; margin-bottom: 0.25rem;">Best Fishing Spots</div><div style="font-size: 0.875rem; color: #4a5a4a; line-height: 1.5;">Top coves and areas across all three arms of the lake.</div></div>
         </a>
-        <a href="/water-levels" style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.25rem; text-decoration: none; display: block;">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌊</div>
-          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #2D6A4F; margin-bottom: 0.35rem;">Water Levels</div>
-          <div style="font-size: 0.875rem; color: #4a5a4a; line-height: 1.5;">Current lake elevation, drawdown schedules, and how levels affect fishing.</div>
+        <a href="/water-levels" style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.25rem; text-decoration: none; display: flex; align-items: flex-start; gap: 1rem;">
+          <div style="font-size: 1.5rem; flex-shrink: 0;">🌊</div>
+          <div><div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #2D6A4F; margin-bottom: 0.25rem;">Water Levels</div><div style="font-size: 0.875rem; color: #4a5a4a; line-height: 1.5;">Current lake elevation, drawdown schedules, and how levels affect fishing.</div></div>
         </a>
-        <a href="/fishing-regulations" style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.25rem; text-decoration: none; display: block;">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📋</div>
-          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #2D6A4F; margin-bottom: 0.35rem;">Licenses & Regulations</div>
-          <div style="font-size: 0.875rem; color: #4a5a4a; line-height: 1.5;">Alabama freshwater license requirements and Smith Lake rules.</div>
+        <a href="/fishing-regulations" style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.25rem; text-decoration: none; display: flex; align-items: flex-start; gap: 1rem;">
+          <div style="font-size: 1.5rem; flex-shrink: 0;">📋</div>
+          <div><div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #2D6A4F; margin-bottom: 0.25rem;">Licenses & Regulations</div><div style="font-size: 0.875rem; color: #4a5a4a; line-height: 1.5;">Alabama freshwater license requirements and Smith Lake rules.</div></div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Species section -->
-  <section style="max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.5rem 2rem;">
-    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.85rem; color: #2D6A4F; margin-bottom: 0.5rem;">Species at Smith Lake</h2>
+  <!-- Species section — 2-col on mobile -->
+  <section style="max-width: 1100px; margin: 0 auto; padding: 3.5rem 1rem 2rem;">
+    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.4rem, 4vw, 1.85rem); color: #2D6A4F; margin-bottom: 0.5rem;">Species at Smith Lake</h2>
     <p style="color: #4a5a4a; margin-bottom: 2rem;">Four primary gamefish — each with their own personality and their own season.</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem;">
-      <SpeciesCard name="Spotted Bass" difficulty="Intermediate" bestSeason="Spring & Fall" bestLure="Shaky Head / Drop Shot" href="/spotted-bass" emoji="🐟" />
-      <SpeciesCard name="Striped Bass" difficulty="Intermediate" bestSeason="Fall & Winter" bestLure="Umbrella Rig / Swimbait" href="/striped-bass" emoji="🐠" />
-      <SpeciesCard name="Crappie" difficulty="Beginner" bestSeason="Spring (Spawn)" bestLure="Small Jig / Live Minnow" href="/crappie" emoji="🎣" />
-      <SpeciesCard name="Catfish" difficulty="Beginner" bestSeason="Summer Nights" bestLure="Cut Bait / Chicken Liver" href="/catfish" emoji="🐡" />
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;">
+
+      <!-- Spotted Bass card -->
+      <a href="/spotted-bass" style="display: block; background: white; border: 1px solid #D8E8D8; border-radius: 8px; overflow: hidden; text-decoration: none;">
+        <div style="padding-top: 12px; text-align: center; background: #f8fbf8;">
+          <img src="/images/spotted-bass.webp" alt="Spotted Bass illustration — Smith Lake, Alabama" style="max-height: 160px; width: auto; object-fit: contain; display: block; margin: 0 auto;" />
+        </div>
+        <div style="padding: 1rem;">
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 700; color: #2D6A4F; margin-bottom: 0.6rem;">Spotted Bass</h3>
+          <dl style="font-size: 0.8rem; color: #1A2E1A;">
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid #D8E8D8;"><dt style="color: #7A9A7A;">Difficulty</dt><dd style="font-weight: 600;">Intermediate</dd></div>
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid #D8E8D8;"><dt style="color: #7A9A7A;">Best Season</dt><dd style="font-weight: 600;">Spring & Fall</dd></div>
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;"><dt style="color: #7A9A7A;">Top Lure</dt><dd style="font-weight: 600; text-align: right;">Drop Shot</dd></div>
+          </dl>
+          <span style="display: inline-block; margin-top: 0.75rem; color: #2D6A4F; font-size: 0.8rem; font-weight: 600;">Learn More →</span>
+        </div>
+      </a>
+
+      <!-- Striped Bass card -->
+      <a href="/striped-bass" style="display: block; background: white; border: 1px solid #D8E8D8; border-radius: 8px; overflow: hidden; text-decoration: none;">
+        <div style="padding-top: 12px; text-align: center; background: #f8fbf8;">
+          <img src="/images/striped-bass.webp" alt="Striped Bass illustration — Smith Lake, Alabama" style="max-height: 160px; width: auto; object-fit: contain; display: block; margin: 0 auto;" />
+        </div>
+        <div style="padding: 1rem;">
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 700; color: #2D6A4F; margin-bottom: 0.6rem;">Striped Bass</h3>
+          <dl style="font-size: 0.8rem; color: #1A2E1A;">
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid #D8E8D8;"><dt style="color: #7A9A7A;">Difficulty</dt><dd style="font-weight: 600;">Intermediate</dd></div>
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid #D8E8D8;"><dt style="color: #7A9A7A;">Best Season</dt><dd style="font-weight: 600;">Fall & Winter</dd></div>
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;"><dt style="color: #7A9A7A;">Top Lure</dt><dd style="font-weight: 600; text-align: right;">Umbrella Rig</dd></div>
+          </dl>
+          <span style="display: inline-block; margin-top: 0.75rem; color: #2D6A4F; font-size: 0.8rem; font-weight: 600;">Learn More →</span>
+        </div>
+      </a>
+
+      <!-- Crappie card -->
+      <a href="/crappie" style="display: block; background: white; border: 1px solid #D8E8D8; border-radius: 8px; overflow: hidden; text-decoration: none;">
+        <div style="padding-top: 12px; text-align: center; background: #f8fbf8;">
+          <img src="/images/crappie.webp" alt="Crappie illustration — Smith Lake, Alabama" style="max-height: 160px; width: auto; object-fit: contain; display: block; margin: 0 auto;" />
+        </div>
+        <div style="padding: 1rem;">
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 700; color: #2D6A4F; margin-bottom: 0.6rem;">Crappie</h3>
+          <dl style="font-size: 0.8rem; color: #1A2E1A;">
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid #D8E8D8;"><dt style="color: #7A9A7A;">Difficulty</dt><dd style="font-weight: 600;">Beginner</dd></div>
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid #D8E8D8;"><dt style="color: #7A9A7A;">Best Season</dt><dd style="font-weight: 600;">Spring Spawn</dd></div>
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;"><dt style="color: #7A9A7A;">Top Lure</dt><dd style="font-weight: 600; text-align: right;">Small Jig</dd></div>
+          </dl>
+          <span style="display: inline-block; margin-top: 0.75rem; color: #2D6A4F; font-size: 0.8rem; font-weight: 600;">Learn More →</span>
+        </div>
+      </a>
+
+      <!-- Catfish card -->
+      <a href="/catfish" style="display: block; background: white; border: 1px solid #D8E8D8; border-radius: 8px; overflow: hidden; text-decoration: none;">
+        <div style="padding-top: 12px; text-align: center; background: #f8fbf8;">
+          <img src="/images/catfish.webp" alt="Channel Catfish illustration — Smith Lake, Alabama" style="max-height: 160px; width: auto; object-fit: contain; display: block; margin: 0 auto;" />
+        </div>
+        <div style="padding: 1rem;">
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 700; color: #2D6A4F; margin-bottom: 0.6rem;">Catfish</h3>
+          <dl style="font-size: 0.8rem; color: #1A2E1A;">
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid #D8E8D8;"><dt style="color: #7A9A7A;">Difficulty</dt><dd style="font-weight: 600;">Beginner</dd></div>
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid #D8E8D8;"><dt style="color: #7A9A7A;">Best Season</dt><dd style="font-weight: 600;">Summer Nights</dd></div>
+            <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;"><dt style="color: #7A9A7A;">Top Lure</dt><dd style="font-weight: 600; text-align: right;">Cut Bait</dd></div>
+          </dl>
+          <span style="display: inline-block; margin-top: 0.75rem; color: #2D6A4F; font-size: 0.8rem; font-weight: 600;">Learn More →</span>
+        </div>
+      </a>
+
     </div>
   </section>
 
-  <!-- Blog section -->
-  <section style="background: #f0f7f2; padding: 3rem 1.5rem; border-top: 1px solid #D8E8D8;">
+  <!-- Blog section — full width on mobile -->
+  <section style="background: #f0f7f2; padding: 3rem 1rem; border-top: 1px solid #D8E8D8;">
     <div style="max-width: 1000px; margin: 0 auto;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
-        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; color: #1A2E1A;">From the Blog</h2>
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.25rem, 3vw, 1.5rem); color: #1A2E1A;">From the Blog</h2>
         <a href="/blog" style="color: #2D6A4F; text-decoration: none; font-size: 0.875rem; font-weight: 600;">All Posts →</a>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
         <div style="background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.5rem;">
           <div style="font-size: 0.75rem; color: #7A9A7A; margin-bottom: 0.5rem;">SEASONAL FISHING</div>
           <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/blog/best-time-to-fish-smith-lake" style="color: #1A2E1A; text-decoration: none;">Best Time of Year to Fish Smith Lake</a></h3>
@@ -114,7 +172,7 @@ import JustinCard from '../components/JustinCard.astro';
   </section>
 
   <!-- Justin Card -->
-  <section style="max-width: 800px; margin: 0 auto; padding: 3rem 1.5rem;">
+  <section style="max-width: 800px; margin: 0 auto; padding: 3rem 1rem;">
     <JustinCard />
   </section>
 
