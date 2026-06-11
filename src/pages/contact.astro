@@ -22,7 +22,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p>For real estate questions specific to buying or selling on Smith Lake, please contact <a href="https://justindyar.com" target="_blank" rel="noopener">Justin Dyar directly at justindyar.com</a> or call (205) 468-6375 — he's the best resource for that.</p>
     </div>
 
-    <form style="display: flex; flex-direction: column; gap: 1.25rem;" onsubmit="event.preventDefault(); document.getElementById('form-success').style.display='block'; this.style.display='none';">
+    <form action="https://formspree.io/f/xeewrapa" method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
+      <input type="hidden" name="_subject" value="New message from FishSmithLake.com" />
+      <input type="hidden" name="_next" value="https://fishsmithlake.com/contact?thanks=true" />
       <div>
         <label for="name" style="display: block; font-size: 0.875rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.35rem;">Your Name</label>
         <input type="text" id="name" name="name" required style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid #D8E8D8; border-radius: 5px; font-size: 0.925rem; font-family: Inter, sans-serif; color: #1A2E1A; background: white; box-sizing: border-box;" placeholder="Smith Lake Angler" />
@@ -47,11 +49,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <button type="submit" style="background-color: #2D6A4F; color: #F7F9F4; border: none; padding: 0.75rem 1.75rem; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: Inter, sans-serif; align-self: flex-start;">Send Message</button>
     </form>
-
-    <div id="form-success" style="display: none; background: #f0f7f2; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.5rem; margin-top: 1rem;">
-      <p style="color: #2D6A4F; font-weight: 600; margin-bottom: 0.35rem;">Message received — thank you.</p>
-      <p style="font-size: 0.9rem; color: #4a5a4a;">We'll be in touch if we have questions or updates. Now get back to fishing.</p>
-    </div>
 
     <div style="margin-top: 2.5rem; font-size: 0.825rem; color: #7A9A7A; line-height: 1.6;">
       <p>FishSmithLake.com is an independent resource. We're not affiliated with Alabama Power, the Alabama DCNR, or any government agency. For official matters, contact those organizations directly.</p>
