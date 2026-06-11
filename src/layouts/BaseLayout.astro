@@ -18,7 +18,8 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -28,6 +29,7 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
     /* Mobile global overrides */
     @media (max-width: 480px) {
       .cta-btn { display: block; width: 100%; text-align: center; box-sizing: border-box; }
+      .site-logo { max-height: 32px !important; }
     }
     /* Prevent horizontal scroll globally */
     html, body { overflow-x: hidden; max-width: 100%; }
@@ -41,7 +43,9 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
   <!-- Navigation -->
   <header style="background-color: #fff; border-bottom: 1px solid #D8E8D8; position: sticky; top: 0; z-index: 50;">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; height: 64px;">
-      <a href="/" style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1rem, 3.5vw, 1.35rem); font-weight: 700; color: #2D6A4F; text-decoration: none; white-space: nowrap; flex-shrink: 0;">FishSmithLake.com</a>
+      <a href="/" style="text-decoration: none; flex-shrink: 0; display: flex; align-items: center;">
+        <img src="/images/logo.png" alt="FishSmithLake.com — Fishing Guide for Lewis Smith Lake" height="40" class="site-logo" style="display: block; max-height: 40px; height: auto; width: auto;" />
+      </a>
 
       <!-- Desktop nav -->
       <nav id="desktop-nav" style="display: flex; gap: 1.75rem; align-items: center;">
