@@ -26,16 +26,52 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
   <!-- styles loaded via frontmatter import -->
   <!-- Google AdSense: insert script tag here when approved -->
   <style>
-    /* Mobile global overrides */
-    @media (max-width: 480px) {
-      .cta-btn { display: block; width: 100%; text-align: center; box-sizing: border-box; }
-      .site-logo { max-height: 32px !important; }
-    }
-    /* Prevent horizontal scroll globally */
+    /* === Global reset === */
+    *, *::before, *::after { box-sizing: border-box; }
     html, body { overflow-x: hidden; max-width: 100%; }
-    img { max-width: 100%; height: auto; }
-    /* Scrollable tables */
-    .table-wrap { overflow-x: auto; }
+    img { max-width: 100%; height: auto; display: block; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* === Prose base === */
+    .prose-lake p, .prose-lake li { font-size: 1rem; line-height: 1.7; }
+    .prose-lake p + p { margin-top: 1rem; }
+
+    /* === Affiliate links — prevent overflow === */
+    .affiliate-link { word-break: break-word; max-width: 100%; }
+
+    /* === Tablet / small desktop (≤ 768px) === */
+    @media (max-width: 768px) {
+      .site-logo { max-height: 36px !important; }
+
+      /* Footer — force single column below the auto-fit threshold */
+      .footer-inner { grid-template-columns: 1fr !important; }
+
+      /* Hero buttons — stack vertically */
+      .hero-btns { flex-direction: column !important; align-items: stretch !important; }
+      .hero-btns .cta-btn {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Featured business card — give it breathing room */
+      .featured-biz { margin-left: 1rem !important; margin-right: 1rem !important; padding: 1.25rem !important; }
+    }
+
+    /* === Mobile (≤ 480px) === */
+    @media (max-width: 480px) {
+      .site-logo { max-height: 32px !important; }
+
+      /* Full-width CTAs everywhere */
+      .cta-btn { display: block !important; width: 100% !important; text-align: center !important; box-sizing: border-box !important; }
+
+      /* Water level widget — shrink the big reading */
+      #level-reading { font-size: 1.5rem !important; }
+
+      /* News cards — ensure source / headline / date stack cleanly */
+      .news-card-meta { flex-wrap: wrap !important; gap: 0.5rem !important; }
+    }
   </style>
 </head>
 <body style="background-color: #F7F9F4; color: #1A2E1A; font-family: Inter, system-ui, sans-serif;">
@@ -97,7 +133,7 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
 
   <!-- Footer -->
   <footer style="background-color: #1A2E1A; color: #F7F9F4; padding: 3rem 1.5rem;">
-    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+    <div class="footer-inner" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
       <div>
         <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #52B788;">FishSmithLake.com</div>
         <p style="font-size: 0.875rem; line-height: 1.7; color: #B8D4B8;">Your independent guide to fishing Lewis Smith Lake, Alabama. We cover spots, species, seasons, gear, and everything else an angler needs on the water.</p>

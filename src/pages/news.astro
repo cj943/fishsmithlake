@@ -91,7 +91,7 @@ const articles = allItems
             <h2 style="margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 500; line-height: 1.4;">
               <a href={item.link} target="_blank" rel="noopener noreferrer" style="color: #1A2E1A; text-decoration: none;">{item.title}</a>
             </h2>
-            <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <div class="news-card-meta" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
               {item.pubDate && (
                 <span style="font-size: 0.8rem; color: #64748B;">{formatDate(item.pubDate)}</span>
               )}
