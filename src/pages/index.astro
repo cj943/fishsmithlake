@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SpeciesCard from '../components/SpeciesCard.astro';
-import JustinCard from '../components/JustinCard.astro';
 ---
 
 <BaseLayout
@@ -171,9 +170,12 @@ import JustinCard from '../components/JustinCard.astro';
     </div>
   </section>
 
-  <!-- Justin Card -->
-  <section style="max-width: 800px; margin: 0 auto; padding: 3rem 1rem;">
-    <JustinCard />
+  <!-- Featured Local Business -->
+  <section style="max-width: 700px; margin: 3rem auto; padding: 2rem; border: 1px solid #D8E8D8; border-radius: 12px; background: #fff;">
+    <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: #52B788; text-transform: uppercase; margin-bottom: 0.5rem;">Featured Local Business</p>
+    <h3 style="font-size: 1.25rem; color: #1A2E1A; margin-bottom: 0.5rem;">Justin Dyar — Mr. Smith Lake</h3>
+    <p style="color: #334155; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">Smith Lake's most recognized waterfront real estate broker. Justin has lived on the lake for over 20 years and helped hundreds of families find their place on the water. If you're thinking about buying or selling lakefront property, he's worth a call.</p>
+    <a href="https://justindyar.com" target="_blank" rel="noopener" style="color: #2D6A4F; font-weight: 600; text-decoration: underline;">justindyar.com →</a>
   </section>
 
 </BaseLayout>
