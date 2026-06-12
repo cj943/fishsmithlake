@@ -6,6 +6,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Contact FishSmithLake.com | Lewis Smith Lake Fishing Resource"
   description="Get in touch with FishSmithLake.com — report errors, share local fishing knowledge, or ask questions about Lewis Smith Lake fishing."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Contact FishSmithLake.com",
+      "description": "Contact FishSmithLake.com \u2014 report errors, share local knowledge, or ask questions about Lewis Smith Lake fishing.",
+      "url": "https://www.fishsmithlake.com/contact"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://www.fishsmithlake.com/contact"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 700px; margin: 0 auto; padding: 3rem 1rem;">
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.5rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Contact Us</h1>
     <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2.5rem;">Got a correction, a tip, or a question about Smith Lake? We'd love to hear from you.</p>

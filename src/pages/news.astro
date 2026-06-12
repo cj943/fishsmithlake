@@ -72,6 +72,41 @@ const articles = allItems
   title="Smith Lake Fishing News | FishSmithLake.com"
   description="Latest fishing news, tournament updates, and lake conditions for Lewis Smith Lake, Alabama."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Smith Lake Fishing News",
+      "description": "Latest fishing news, tournament updates, and lake conditions for Lewis Smith Lake, Alabama.",
+      "url": "https://www.fishsmithlake.com/news",
+      "about": {
+        "@type": "LakeBodyOfWater",
+        "name": "Lewis Smith Lake"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "News",
+          "item": "https://www.fishsmithlake.com/news"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Smith Lake Fishing News</h1>
     <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 0.75rem;">The latest from around the lake — tournament results, fishing reports, and Alabama outdoors news.</p>

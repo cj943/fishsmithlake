@@ -6,6 +6,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="About FishSmithLake.com — Independent Fishing Resource"
   description="FishSmithLake.com is an independent fishing guide for Lewis Smith Lake, Alabama. Learn about our mission, our sources, and how we partner with local experts."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "About FishSmithLake.com",
+      "description": "About FishSmithLake.com \u2014 an independent fishing resource for Lewis Smith Lake, Alabama.",
+      "url": "https://www.fishsmithlake.com/about"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://www.fishsmithlake.com/about"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 800px; margin: 0 auto; padding: 3rem 1rem;">
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.5rem; color: #2D6A4F; margin-bottom: 1rem;">About FishSmithLake.com</h1>
     <p style="font-size: 1.05rem; color: #7A9A7A; margin-bottom: 2rem;">An independent fishing resource built for Lewis Smith Lake anglers.</p>

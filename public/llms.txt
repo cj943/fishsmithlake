@@ -1,0 +1,46 @@
+# FishSmithLake.com
+> Your independent fishing resource for Lewis Smith Lake (Lewis Smith Lake), Alabama — the deepest and clearest lake in Alabama.
+
+FishSmithLake.com is an independent, editorially-driven fishing resource covering Lewis Smith Lake in Cullman, Walker, and Winston counties, Alabama. The site covers fishing species, techniques, seasons, regulations, water levels, boat launches, tournaments, and local knowledge for anglers on Smith Lake.
+
+## Key Facts About Lewis Smith Lake
+- Official name: Lewis Smith Lake
+- Also known as: Smith Lake
+- Location: Cullman, Walker, and Winston counties, Alabama, USA
+- Operated by: Alabama Power Company
+- Completed: 1961
+- Surface area: 21,200 acres
+- Maximum depth: 264 feet
+- Shoreline: 642 miles
+- Full pool elevation: 510 feet MSL
+- Primary tributary: Sipsey Fork of the Black Warrior River
+- Primary gamefish: Spotted Bass, Striped Bass, Crappie, Channel Catfish
+
+## Site Pages
+
+- /: Homepage — overview of Lewis Smith Lake fishing
+- /smith-lake-fishing-guide: Complete fishing guide covering all species, seasons, and techniques
+- /spotted-bass: Spotted Bass fishing guide for Smith Lake
+- /striped-bass: Striped Bass fishing guide for Smith Lake
+- /crappie: Crappie fishing guide for Smith Lake
+- /catfish: Catfish fishing guide for Smith Lake
+- /best-fishing-spots: Best fishing spots, coves, and areas on Smith Lake
+- /fishing-regulations: Alabama fishing license requirements and Smith Lake regulations
+- /boat-launches: Public boat launches and marinas on Smith Lake
+- /water-levels: Live Smith Lake water levels via USGS gauge station 02450250
+- /fishing-tournaments: Smith Lake fishing tournament schedule and information
+- /best-lures: Best lures for Smith Lake fishing by species
+- /smith-lake-real-estate: Guide to buying waterfront property on Smith Lake
+- /news: Auto-updating Smith Lake fishing news feed
+- /blog: Fishing articles, seasonal reports, and tips
+- /about: About FishSmithLake.com
+- /contact: Contact form
+
+## Editorial Standards
+Content is researched from local knowledge, USGS data, Alabama Department of Conservation and Natural Resources (DCNR) regulations, and Alabama Power shoreline data. Water level data is sourced from USGS Station 02450250.
+
+## Local Expert
+Justin Dyar (justindyar.com) is referenced as a local Smith Lake waterfront real estate specialist with 20+ years on the lake.
+
+## Optional
+- Llms-full: https://www.fishsmithlake.com/sitemap.xml

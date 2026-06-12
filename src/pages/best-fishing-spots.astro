@@ -6,6 +6,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Best Fishing Spots at Smith Lake, Alabama | FishSmithLake.com"
   description="The best fishing spots and coves at Lewis Smith Lake — Brushy Creek, Clear Creek, Houston, Arley, and the north arm. Local tips on where fish hold across all three counties."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Best Fishing Spots at Lewis Smith Lake, Alabama",
+      "description": "The best fishing spots, coves, and areas at Lewis Smith Lake \u2014 Brushy Creek, Clear Creek, Houston, Arley, and the north arm.",
+      "author": {
+        "@type": "Organization",
+        "name": "FishSmithLake.com",
+        "url": "https://www.fishsmithlake.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FishSmithLake.com",
+        "url": "https://www.fishsmithlake.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.fishsmithlake.com/best-fishing-spots"
+      },
+      "about": {
+        "@type": "LakeBodyOfWater",
+        "name": "Lewis Smith Lake",
+        "alternateName": "Smith Lake"
+      },
+      "keywords": "best fishing spots Smith Lake, Smith Lake coves, Lewis Smith Lake fishing areas"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Best Fishing Spots",
+          "item": "https://www.fishsmithlake.com/best-fishing-spots"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Best Fishing Spots at Lewis Smith Lake</h1>
     <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2rem;">642 miles of shoreline across three counties — here's where the fish are.</p>

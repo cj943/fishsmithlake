@@ -6,6 +6,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Alabama Fishing License & Smith Lake Regulations | FishSmithLake.com"
   description="Alabama freshwater fishing license requirements, costs, and Smith Lake-specific fishing regulations. What you need to know before fishing Lewis Smith Lake."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Smith Lake Fishing Regulations & Alabama Fishing License",
+      "description": "Alabama freshwater fishing license requirements and Smith Lake-specific fishing regulations. Always verify at outdooralabama.com.",
+      "url": "https://www.fishsmithlake.com/fishing-regulations",
+      "about": {
+        "@type": "LakeBodyOfWater",
+        "name": "Lewis Smith Lake"
+      },
+      "mentions": {
+        "@type": "GovernmentOrganization",
+        "name": "Alabama Department of Conservation and Natural Resources",
+        "alternateName": "Alabama DCNR",
+        "url": "https://www.outdooralabama.com"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Fishing Regulations",
+          "item": "https://www.fishsmithlake.com/fishing-regulations"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Alabama Fishing License & Smith Lake Regulations</h1>
     <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 1.5rem;">What you need to know before you wet a line at Lewis Smith Lake.</p>

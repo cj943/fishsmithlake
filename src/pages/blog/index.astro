@@ -48,6 +48,41 @@ function formatDate(dateStr: string) {
   title="Fishing Blog — Lewis Smith Lake Tips, Reports & Guides | FishSmithLake.com"
   description="Smith Lake fishing blog — seasonal fishing reports, technique guides, tips for spotted bass, striped bass, crappie, and catfish at Lewis Smith Lake, Alabama."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Smith Lake Fishing Blog",
+      "description": "Fishing articles, seasonal reports, technique guides, and tips for Lewis Smith Lake, Alabama.",
+      "url": "https://www.fishsmithlake.com/blog",
+      "about": {
+        "@type": "LakeBodyOfWater",
+        "name": "Lewis Smith Lake"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.fishsmithlake.com/blog"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 900px; margin: 0 auto; padding: 3rem 1rem;">
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 4vw, 2.5rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.5rem;">Smith Lake Fishing Blog</h1>
     <p style="font-size: 1.05rem; color: #4a5a4a; line-height: 1.7; margin-bottom: 2.5rem;">Seasonal reports, technique breakdowns, and practical advice from the water.</p>

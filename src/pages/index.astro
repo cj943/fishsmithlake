@@ -8,6 +8,60 @@ import SpeciesCard from '../components/SpeciesCard.astro';
   description="Your complete fishing resource for Lewis Smith Lake, Alabama. Species guides, best spots, water levels, regulations, and local tips from people who know the lake."
 >
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.fishsmithlake.com/#website",
+        "url": "https://www.fishsmithlake.com",
+        "name": "FishSmithLake.com",
+        "description": "Your independent fishing resource for Lewis Smith Lake, Alabama — species guides, best spots, water levels, regulations, and local tips.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "FishSmithLake.com",
+          "url": "https://www.fishsmithlake.com"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.fishsmithlake.com/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.fishsmithlake.com/#webpage",
+        "url": "https://www.fishsmithlake.com",
+        "name": "FishSmithLake.com — Fishing Guide for Lewis Smith Lake, Alabama",
+        "description": "Your complete fishing resource for Lewis Smith Lake, Alabama. Species guides, best spots, water levels, regulations, and local tips from people who know the lake.",
+        "isPartOf": { "@id": "https://www.fishsmithlake.com/#website" },
+        "about": {
+          "@type": "LakeBodyOfWater",
+          "name": "Lewis Smith Lake",
+          "alternateName": "Smith Lake",
+          "description": "Lewis Smith Lake is a reservoir in Cullman, Walker, and Winston counties in Alabama, operated by Alabama Power. It is the deepest lake in Alabama at 264 feet and covers 21,200 surface acres.",
+          "maximumDepth": { "@type": "QuantitativeValue", "value": 264, "unitCode": "FOT" },
+          "areaTotal": { "@type": "QuantitativeValue", "value": 21200, "unitCode": "ACR" },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 34.0582,
+            "longitude": -87.1186
+          },
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Alabama",
+            "containedInPlace": { "@type": "Country", "name": "United States" }
+          }
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- Hero with background image + overlay -->
   <section style="position: relative; background-image: url('/images/smith-lake-hero.webp'); background-size: cover; background-position: center; color: #F7F9F4; padding: 5rem 1.5rem 4rem;">
     <div style="position: absolute; inset: 0; background: rgba(26, 46, 26, 0.55); z-index: 0;"></div>

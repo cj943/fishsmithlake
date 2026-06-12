@@ -7,6 +7,62 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
   title="Catfish Fishing at Smith Lake, Alabama | FishSmithLake.com"
   description="Guide to catfish fishing at Lewis Smith Lake — channel cats, blue cats, best baits, night fishing tips, and the best coves and banks to target catfish."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Catfish Fishing at Smith Lake, Alabama",
+      "description": "Guide to catfish fishing at Lewis Smith Lake \u2014 channel catfish locations, best bait, and night fishing tips.",
+      "author": {
+        "@type": "Organization",
+        "name": "FishSmithLake.com",
+        "url": "https://www.fishsmithlake.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FishSmithLake.com",
+        "url": "https://www.fishsmithlake.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.fishsmithlake.com/catfish"
+      },
+      "about": [
+        {
+          "@type": "LakeBodyOfWater",
+          "name": "Lewis Smith Lake"
+        },
+        {
+          "@type": "Thing",
+          "name": "Channel Catfish",
+          "sameAs": "https://en.wikipedia.org/wiki/Channel_catfish"
+        }
+      ],
+      "keywords": "catfish fishing Smith Lake, channel catfish Alabama, night fishing Smith Lake"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Catfish",
+          "item": "https://www.fishsmithlake.com/catfish"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
     <div style="font-size: 0.8rem; color: #7A9A7A; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;"><a href="/smith-lake-fishing-guide" style="color: #7A9A7A; text-decoration: none;">Fishing Guide</a> › Species</div>
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Catfish Fishing at Lewis Smith Lake</h1>

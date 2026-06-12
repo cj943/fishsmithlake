@@ -6,6 +6,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Complete Smith Lake Fishing Guide — Lewis Smith Lake, Alabama"
   description="The complete guide to fishing Lewis Smith Lake, Alabama. Species, seasons, gear, regulations, best spots, and tips for first-timers on Alabama's clearest reservoir."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Complete Smith Lake Fishing Guide \u2014 Lewis Smith Lake, Alabama",
+      "description": "The complete guide to fishing Lewis Smith Lake, Alabama. Species, seasons, gear, regulations, best spots, and tips for first-timers on Alabama's clearest reservoir.",
+      "author": {
+        "@type": "Organization",
+        "name": "FishSmithLake.com",
+        "url": "https://www.fishsmithlake.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FishSmithLake.com",
+        "url": "https://www.fishsmithlake.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.fishsmithlake.com/smith-lake-fishing-guide"
+      },
+      "about": {
+        "@type": "LakeBodyOfWater",
+        "name": "Lewis Smith Lake",
+        "alternateName": "Smith Lake"
+      },
+      "keywords": "Smith Lake fishing guide, Lewis Smith Lake fishing, Alabama fishing, spotted bass Smith Lake"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Complete Fishing Guide",
+          "item": "https://www.fishsmithlake.com/smith-lake-fishing-guide"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
 
     <div style="margin-bottom: 2rem;">

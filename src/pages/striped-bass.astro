@@ -7,6 +7,62 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
   title="Striped Bass Fishing at Smith Lake, Alabama | FishSmithLake.com"
   description="Guide to catching striped bass at Lewis Smith Lake. Best times, locations, umbrella rigs, jigs, and everything you need to know about Smith Lake stripers."
 >
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Striped Bass Fishing at Smith Lake, Alabama",
+      "description": "How to catch striped bass at Lewis Smith Lake \u2014 seasonal patterns, best spots, tackle, and techniques for Smith Lake stripers.",
+      "author": {
+        "@type": "Organization",
+        "name": "FishSmithLake.com",
+        "url": "https://www.fishsmithlake.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FishSmithLake.com",
+        "url": "https://www.fishsmithlake.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.fishsmithlake.com/striped-bass"
+      },
+      "about": [
+        {
+          "@type": "LakeBodyOfWater",
+          "name": "Lewis Smith Lake"
+        },
+        {
+          "@type": "Thing",
+          "name": "Striped Bass",
+          "sameAs": "https://en.wikipedia.org/wiki/Striped_bass"
+        }
+      ],
+      "keywords": "striped bass Smith Lake, striper fishing Alabama, Smith Lake stripers"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fishsmithlake.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Striped Bass",
+          "item": "https://www.fishsmithlake.com/striped-bass"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <div style="max-width: 860px; margin: 0 auto; padding: 3rem 1rem;">
     <div style="font-size: 0.8rem; color: #7A9A7A; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;"><a href="/smith-lake-fishing-guide" style="color: #7A9A7A; text-decoration: none;">Fishing Guide</a> › Species</div>
     <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem, 4vw, 2.75rem); color: #1A2E1A; line-height: 1.2; margin-bottom: 0.75rem;">Striped Bass Fishing at Lewis Smith Lake</h1>
