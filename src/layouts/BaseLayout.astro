@@ -73,6 +73,14 @@ const { title, description, canonicalURL = Astro.url.href } = Astro.props;
       .news-card-meta { flex-wrap: wrap !important; gap: 0.5rem !important; }
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3LP79S3YLE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3LP79S3YLE');
+  </script>
 </head>
 <body style="background-color: #F7F9F4; color: #1A2E1A; font-family: Inter, system-ui, sans-serif;">
 
