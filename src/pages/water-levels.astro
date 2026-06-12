@@ -226,4 +226,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     })();
   </script>
 
+
+  <div style="max-width: 860px; margin: 0 auto; padding: 2rem 1rem 3rem;">
+    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.25rem, 3vw, 1.6rem); color: #2D6A4F; margin-bottom: 1.25rem;">Frequently Asked Questions</h2>
+
+    <div style="border-left: 3px solid #52B788; padding: 1rem; background: #F7FFF7; border-radius: 6px; margin-bottom: 1rem;">
+      <h3 style="font-size: 1rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.5rem;">What gauge station monitors Smith Lake water levels?</h3>
+      <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin: 0;">USGS gauge station 02450250, located on the Sipsey Fork of the Black Warrior River at the Smith Lake Dam near Jasper, Alabama, is the primary monitoring station for Lewis Smith Lake. The data is publicly available through the USGS National Water Information System and is what powers the live widget on this page.</p>
+    </div>
+
+    <div style="border-left: 3px solid #52B788; padding: 1rem; background: #F7FFF7; border-radius: 6px; margin-bottom: 1rem;">
+      <h3 style="font-size: 1rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.5rem;">How often does the water level data update?</h3>
+      <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin: 0;">USGS gauge station data transmits readings every 15 minutes. The widget on this page fetches the latest available reading from the USGS API each time the page loads. For the absolute latest data, reload the page or visit the USGS directly.</p>
+    </div>
+
+    <div style="border-left: 3px solid #52B788; padding: 1rem; background: #F7FFF7; border-radius: 6px; margin-bottom: 1rem;">
+      <h3 style="font-size: 1rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.5rem;">How much of a drawdown is significant for fishing?</h3>
+      <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin: 0;">A drawdown of 1 to 2 feet below full pool (510 ft MSL) is minor — most structure remains fishable. A 3 to 5-foot drawdown noticeably exposes shallow cover like docks and coves, and fish begin concentrating in creek channels and on main lake points. A drawdown greater than 5 feet is significant — shallow-water features like brush piles become inaccessible, but main lake ledge fishing and deep jigging often improve as fish concentrate.</p>
+    </div>
+  </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What gauge station monitors Smith Lake water levels?", "acceptedAnswer": { "@type": "Answer", "text": "USGS gauge station 02450250, located on the Sipsey Fork of the Black Warrior River at the Smith Lake Dam near Jasper, Alabama, is the primary monitoring station for Lewis Smith Lake. The data is publicly available through the USGS National Water Information System." } },
+    { "@type": "Question", "name": "How often does the water level data update?", "acceptedAnswer": { "@type": "Answer", "text": "USGS gauge station data transmits readings every 15 minutes. The widget on this page fetches the latest available reading from the USGS API each time the page loads. For the absolute latest data, reload the page or visit the USGS directly." } },
+    { "@type": "Question", "name": "How much of a drawdown is significant for fishing?", "acceptedAnswer": { "@type": "Answer", "text": "A drawdown of 1 to 2 feet below full pool is minor — most structure remains fishable. A 3 to 5-foot drawdown noticeably exposes shallow cover and fish begin concentrating in creek channels. A drawdown greater than 5 feet is significant — shallow-water features become inaccessible, but main lake ledge fishing and deep jigging often improve as fish concentrate." } }
+  ]
+}
+</script>
 </BaseLayout>

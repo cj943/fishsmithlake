@@ -106,4 +106,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     </div>
   </div>
+
+  <div style="max-width: 860px; margin: 0 auto; padding: 2rem 1rem 3rem;">
+    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.25rem, 3vw, 1.6rem); color: #2D6A4F; margin-bottom: 1.25rem;">Frequently Asked Questions</h2>
+
+    <div style="border-left: 3px solid #52B788; padding: 1rem; background: #F7FFF7; border-radius: 6px; margin-bottom: 1rem;">
+      <h3 style="font-size: 1rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.5rem;">Which arm of Smith Lake is best for bass fishing?</h3>
+      <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin: 0;">All three arms of Smith Lake hold good spotted bass, but the south arm (Houston/Cullman County area) and the northwest arm (Clear Creek/Bankhead National Forest) are considered the most productive. The south arm has classic ledge structure and deep points ideal for finesse fishing; the northwest arm offers dramatic bluff walls, large boulders, and rock transitions that spotted bass love.</p>
+    </div>
+
+    <div style="border-left: 3px solid #52B788; padding: 1rem; background: #F7FFF7; border-radius: 6px; margin-bottom: 1rem;">
+      <h3 style="font-size: 1rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.5rem;">Is Clear Creek a good area for bank fishing?</h3>
+      <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin: 0;">Yes. Clear Creek Recreation Area, managed by the U.S. Forest Service within Bankhead National Forest, offers some of the best public bank access on Smith Lake. The rocky shorelines give bank anglers access to ledge structure and clear water that can produce spotted bass and striped bass. A small day-use fee applies to the recreation area.</p>
+    </div>
+
+    <div style="border-left: 3px solid #52B788; padding: 1rem; background: #F7FFF7; border-radius: 6px; margin-bottom: 1rem;">
+      <h3 style="font-size: 1rem; font-weight: 600; color: #1A2E1A; margin-bottom: 0.5rem;">Which part of Smith Lake has the least fishing pressure?</h3>
+      <p style="font-size: 0.95rem; color: #334155; line-height: 1.7; margin: 0;">The Winston County (Arley) side of Smith Lake traditionally sees less recreational boat traffic and fishing pressure compared to the Cullman County side. The upper reaches of the north arm above Arley, and coves along the Winston County shoreline, offer more solitude and underfished crappie and bass habitat — especially on weekdays outside of tournament season.</p>
+    </div>
+  </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Which arm of Smith Lake is best for bass fishing?", "acceptedAnswer": { "@type": "Answer", "text": "All three arms of Smith Lake hold good spotted bass, but the south arm (Houston/Cullman County area) and the northwest arm (Clear Creek/Bankhead National Forest) are considered the most productive. The south arm has classic ledge structure ideal for finesse fishing; the northwest arm offers dramatic bluff walls and rock transitions that spotted bass love." } },
+    { "@type": "Question", "name": "Is Clear Creek a good area for bank fishing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Clear Creek Recreation Area, managed by the U.S. Forest Service within Bankhead National Forest, offers some of the best public bank access on Smith Lake. The rocky shorelines give bank anglers access to ledge structure and clear water that can produce spotted bass and striped bass." } },
+    { "@type": "Question", "name": "Which part of Smith Lake has the least fishing pressure?", "acceptedAnswer": { "@type": "Answer", "text": "The Winston County (Arley) side of Smith Lake traditionally sees less recreational boat traffic and fishing pressure compared to the Cullman County side. The upper reaches of the north arm above Arley offer more solitude and underfished crappie and bass habitat — especially on weekdays outside of tournament season." } }
+  ]
+}
+</script>
 </BaseLayout>
