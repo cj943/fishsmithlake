@@ -5,13 +5,11 @@ export interface Props {
   bestSeason: string;
   bestLure: string;
   href: string;
-  emoji?: string;
 }
 
-const { name, difficulty, bestSeason, bestLure, href, emoji = '🎣' } = Astro.props;
+const { name, difficulty, bestSeason, bestLure, href } = Astro.props;
 ---
 <a href={href} style="display: block; background: white; border: 1px solid #D8E8D8; border-radius: 8px; padding: 1.5rem; text-decoration: none; transition: box-shadow 0.2s, border-color 0.2s;">
-  <div style="font-size: 2rem; margin-bottom: 0.75rem;">{emoji}</div>
   <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #2D6A4F; margin-bottom: 0.75rem;">{name}</h3>
   <dl style="font-size: 0.875rem; color: #1A2E1A;">
     <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid #D8E8D8;">
